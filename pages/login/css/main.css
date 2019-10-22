@@ -1,0 +1,82 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	/* margin-top: 128rpx; */
+}
+
+/* 头部 logo */
+.header {
+	/* width:161rpx; */
+	/* height:161rpx; */
+	/* box-shadow:0rpx 0rpx 60rpx 0rpx rgba(0,0,0,0.1); */
+	/* border-radius:50%; */
+	/* background-color: #000000; */
+	margin-top: 128rpx;
+	margin-bottom: 72rpx;
+	margin-left: auto;
+	margin-right: auto;
+}
+.header image{
+	width:180rpx;
+	height:221rpx;
+	/* border-radius:50%; */
+}
+
+/* 主体 */
+.main {
+	display: flex;
+	flex-direction: column;
+	padding-left: 70rpx;
+	padding-right: 70rpx;
+}
+.tips {
+	color: #999999;
+	font-size: 28rpx;
+	margin-top: 64rpx;
+	margin-left: 48rpx;
+}
+
+/* 其他登录方式 */
+.other_login{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 256rpx;
+	text-align: center;
+}
+.login_icon{
+	border: none;
+	font-size: 64rpx;
+	margin: 0 64rpx 0 64rpx;
+	color: rgba(0,0,0,0.7)
+}
+.wechat_color{
+	color: #83DC42;
+}
+.weibo_color{
+	color: #F9221D;
+}
+.github_color{
+	color: #24292E;
+}
+
+/* 底部 */
+.footer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	font-size: 28rpx;
+	margin-top: 64rpx;
+	color: rgba(0,0,0,0.7);
+	text-align: center;
+	height: 40rpx;
+	line-height: 40rpx;
+}
+.footer text{
+	font-size: 24rpx;
+	margin-left: 15rpx;
+	margin-right: 15rpx;
+}

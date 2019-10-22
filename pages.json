@@ -1,0 +1,111 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "待办",
+				"enablePullDownRefresh": false, // 不开启下拉刷新, 默认就是false
+				// "titleNView": false,
+				"app-plus": {
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登陆",
+				"titleNView": false
+			}
+		},
+		{
+			"path": "pages/index/project/detail-project",
+			"style": {
+				"navigationBarTitleText": "项目审批"
+			}
+		},
+		{
+			"path": "pages/index/project/adjust-project",
+			"style": {
+				"navigationBarTitleText": "项目调整"
+			}
+		},
+		{
+			"path": "pages/index/user/detail-user",
+			"style": {
+				"navigationBarTitleText": "用户审批"
+			}
+		},
+		{
+			"path": "pages/file/file_preview",
+			"style": {
+				"navigationBarTitleText": "附件预览"
+			}
+		},
+		{
+			"path": "pages/project/index",
+			"style": {
+				"navigationBarTitleText": "项目"
+			}
+		},
+		{
+			"path": "pages/project/project-detail",
+			"style": {
+				"navigationBarTitleText": "项目详细"
+			}
+		},
+		{
+			"path": "pages/analysis/index",
+			"style": {
+				"navigationBarTitleText": "统计"
+			}
+		},
+		{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#8a8a8a",
+		"selectedColor": "#4364F7",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "待办",
+			"iconPath": "static/img/tabbar/todo.png",
+			"selectedIconPath": "static/img/tabbar/todoHL.png"
+		}, {
+			"pagePath": "pages/project/index",
+			"text": "项目",
+			"iconPath": "static/img/tabbar/project.png",
+			"selectedIconPath": "static/img/tabbar/projectHL.png"
+		}, {
+			"pagePath": "pages/analysis/index",
+			"text": "统计",
+			"iconPath": "static/img/tabbar/tongji.png",
+			"selectedIconPath": "static/img/tabbar/tongjiHL.png"
+		}, {
+			"pagePath": "pages/user/index",
+			"text": "我的",
+			"iconPath": "static/img/tabbar/user.png",
+			"selectedIconPath": "static/img/tabbar/userHL.png"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uniapp-admin",
+		"navigationBarBackgroundColor": "#4364F7",
+		"backgroundColor": "#F8F8F8"
+		// "mp-alipay": {
+		// 	/* 支付宝小程序特有相关 */
+		// 	"transparentTitle": "always",
+		// 	"allowsBounceVertical": "NO"
+		// },
+		// "navigationBarBackgroundColor": "#0081ff",
+		// "navigationBarTitleText": "uniapp-admin",
+		// "navigationStyle": "custom",
+		// "navigationBarTextStyle": "white"
+	}
+}

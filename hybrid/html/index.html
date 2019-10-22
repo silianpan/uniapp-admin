@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>预览文件</title>
+		<style type="text/css">
+		</style>
+		<script src="js/jquery.min.js"></script>
+		<script src="build/pdf.js"></script>
+		<script src="build/pdf.worker.js"></script>
+		<script type="text/javascript">
+			// 不能跨域
+			var var_filepath = getQueryString('filepath');
+			console.log('var_filepath', var_filepath)
+			var var_win_height = $(window).height();
+
+			$(document).ready(function() {
+				resetPlayerSize();
+			});
+
+			$(window).resize(function() {
+				resetPlayerSize();
+			});
+
+			function resetPlayerSize() {
+				var_win_height = $(window).height();
+				$(".tmPlayer").css({
+					"height": var_win_height + "px"
+				});
+			}
+
+			function getQueryString(name) {
+				let reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+				let r = window.location.search.substr(1).match(reg) // search,查询？后面的参数，并匹配正则
+				if (r != null) {
+					return unescape(r[2])
+				}
+				return null
+			}
+		</script>
+	</head>
+
+	<body style="margin: 0;overflow: hidden">
+		<div id="tmPlayer" class="tmPlayer" style="height: 557px; width: 100%; height: 100%"></div>
+
+		<script type="text/javascript">
+			$('.tmPlayer').html(
+				'<iframe frameBorder="0" scrolling="no" src="web/viewer.html?file=' +
+				var_filepath +
+				'" style="width:100%; height:100%;"></iframe>');
+		</script>
+
+	</body>
+</html>
