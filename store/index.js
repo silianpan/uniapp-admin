@@ -36,7 +36,7 @@ const store = new Vuex.Store({
 					let tmp = { ...params, id: 1, userName: '张三', roleStr: '管理员' }
 					commit('login', tmp)
 					resolve(tmp)
-				}, 3000)
+				}, 1000)
 			})
 		},
 		logout({
