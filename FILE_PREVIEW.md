@@ -13,10 +13,7 @@ output: word_document
 
 &emsp;&emsp;[uni-app](https://uniapp.dcloud.io/) 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、H5、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台。在做业务系统时，不可避免会遇到**文件在线预览**的需求。这里的文件包括**PDF、Word、Excel、PPT、图片**等。而在线预览不是下载后再用本地软件或浏览器打开预览，而是直接通过**文件流**的形式查看。本方案主要解决**在线预览问题**，以及**在uni-app开发过程中遇到一系列问题**。
 
-
-
 &emsp;&emsp;如果有欠缺的地方，或者有更好的方案，还望各位码友**多提意见，多多交流**，文章最后可以加我。
-
 
 > 文件预览，首先会想到pdf预览，前端做pdf预览，首先也会想到[pdf.js](https://github.com/mozilla/pdf.js)，那我们就从[pdf.js](https://github.com/mozilla/pdf.js)说起。
 
