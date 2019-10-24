@@ -1,25 +1,26 @@
 ---
-title: "全平台（uni-app）环境下文件在线预览解决方案"
+title: "跨平台（uni-app）文件在线预览解决方案"
 author: liupan
 date: 2019-10-23
 output: word_document
 ---
 
-## 全平台（uni-app）环境下文件在线预览解决方案
+## 跨平台（uni-app）文件在线预览解决方案
 
 ### 一、前言
 
-&emsp;&emsp;[uni-app](https://uniapp.dcloud.io/) 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、H5、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台。在做业务系统时，不可避免会遇到文件在线预览的需求。这里的文件包括PDF、Word、Excel、PPT、图片等。而在线预览不是只下载下来后再用本地软件或浏览器打开预览，而是直接通过文件流的形式查看。本方案主要解决在线预览问题，以及在uni-app开发过程中遇到一系列问题。
+&emsp;&emsp;[uni-app](https://uniapp.dcloud.io/) 是一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、H5、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉）等多个平台。在做业务系统时，不可避免会遇到**文件在线预览**的需求。这里的文件包括**PDF、Word、Excel、PPT、图片**等。而在线预览不是下载后再用本地软件或浏览器打开预览，而是直接通过**文件流**的形式查看。本方案主要解决**在线预览问题**，以及**在uni-app开发过程中遇到一系列问题**。
 
-&emsp;&emsp;如果有欠缺的地方，或者有更好的方案，还望各位码友多提意见，多多交流。
+&emsp;&emsp;如果有欠缺的地方，或者有更好的方案，还望各位码友**多提意见，多多交流**，文章最后可以加我。
+
 
 > 文件预览，首先会想到pdf预览，前端做pdf预览，首先也会想到[pdf.js](https://github.com/mozilla/pdf.js)，那我们就从[pdf.js](https://github.com/mozilla/pdf.js)说起。
 
 ### 二、PDF预览
 
-pdf.js开源地址和在线例子
-[Github](https://github.com/mozilla/pdf.js)
-[Online Demo](https://mozilla.github.io/pdf.js/web/viewer.html)
+> pdf.js开源地址和在线例子
+> [Github](https://github.com/mozilla/pdf.js)
+> [Online Demo](https://mozilla.github.io/pdf.js/web/viewer.html)
 
 #### 2.1 使用方法一
 
@@ -29,9 +30,9 @@ pdf.js开源地址和在线例子
 * 解压，拷贝build和web目录到项目**hybrid->html**目录下，参考[uni-app中web-view用法](https://uniapp.dcloud.io/component/web-view)
 <img src="http://silianpan.cn/wp-content/uploads/2019/10/b5ed0c0b06379c37a294d571728473bb.png" width="240" align=center />
 
-* 新建vue组件file-preview.vue
-  * viewerUrl：前端本地viewer.html页面地址
-  * fileUrl：文件流访问地址，参考《**三、文件流服务**》
+* 新建vue组件**file-preview.vue**
+  * **viewerUrl**：前端本地**viewer.html**页面地址
+  * **fileUrl**：文件流访问地址，参考《**三、文件流服务**》
 
 ```js
 <template>
@@ -64,11 +65,11 @@ pdf.js开源地址和在线例子
   显示正常
   ![](http://silianpan.cn/wp-content/uploads/2019/10/b4f6ea827000afc84939d0fcc0a309c3.png)
   * Android端
-  显示模糊，并且中文显示不全，其中模糊问题是模拟器原因；但是中文显示问题是真，调试出现两个警告。第二个警告**pdf.js默认不显示电子签章(数字签名)问题**，查了很多资料也没解决，各位码友有遇到过并且解决了吗？
+  显示模糊，并且**中文显示不全**，其中模糊问题是模拟器原因；但是中文显示问题是真，调试出现两个警告。第二个警告**pdf.js默认不显示电子签章(数字签名)问题**，查了很多资料也没解决，各位码友有遇到过并且解决了吗？
   <img src="http://silianpan.cn/wp-content/uploads/2019/10/13bd0bc4eca43f65e77c1cfe641056db.png" width="360" align=center />
   ![](http://silianpan.cn/wp-content/uploads/2019/10/e8da9ee0c8fa754d592b13f9bd9e45e0.png)
   * iOS端
-  出现跨域问题，并且调试出现无法访问pdf.js国际化文件
+  出现**跨域问题**，并且调试出现无法访问pdf.js国际化文件
   <img src="http://silianpan.cn/wp-content/uploads/2019/10/32cc3e59ea14d7261c11a8b92a0d0478.png" width="360" align=center />
   ![](http://silianpan.cn/wp-content/uploads/2019/10/05d5c60aaed1873b2a278e91b2fce94d.png)
 
@@ -77,13 +78,13 @@ pdf.js开源地址和在线例子
 
 #### 2.2 使用方法二
 
-* 在基于spring mvc的后端代码中，将插件包的build和web文件夹放到webapp下面（新建pdf文件夹），spring boot架构的后端项目同理，放到静态资源目录
+* 在基于**spring mvc**的后端代码中，将插件包的**build和web**文件夹放到**webapp**下面（新建pdf文件夹），spring boot架构的后端项目同理，放到静态资源目录
 <img src="http://silianpan.cn/wp-content/uploads/2019/10/1984ff0a6031134fe90b0d7f7d1ba0a8.png" width="400" align=center />
 
-* 在xml文件中配置静态文件访问
+* 在xml文件中配置**静态文件访问**
 ![](http://silianpan.cn/wp-content/uploads/2019/10/9a58d71e06aff7864d103abe4753e233.png)
 
-* 修改前端组件file-preview.vue中的viewerUrl，其中globalConfig.baseUrl为代理后端地址的baseUrl。如**Vue中proxyTable**或**nginx代理**
+* 修改前端组件file-preview.vue中的**viewerUrl**，其中globalConfig.baseUrl为**代理后端地址的baseUrl**。如**Vue中proxyTable**或**nginx代理**
 ```js
 viewerUrl: globalConfig.baseUrl + '/pdf/web/viewer.html'
 ```
@@ -98,9 +99,10 @@ viewerUrl: globalConfig.baseUrl + '/pdf/web/viewer.html'
 ### 三、文件流服务
 
 #### 3.1 方法一：tomcat配置
-配置tomcat的config目录下的server.xml，在最后的&lt;server&gt;&lt;/server&gt;中间添加如下：
-> port=8090 文件访问服务端口
-> docBase="/root/" 文件存储目录
+
+配置tomcat的config目录下的**server.xml**，在最后的&lt;server&gt;&lt;/server&gt;中间添加如下：
+> **port=8090** 文件访问服务端口
+> **docBase="/root/"** 文件存储目录
 > 服务器上文件会存储到/root/fileData/目录下
 > 文件访问地址为：<http://ip地址:8090/fileData/文件名>
 
@@ -123,8 +125,8 @@ viewerUrl: globalConfig.baseUrl + '/pdf/web/viewer.html'
 #### 3.2 方法二：写代码获取服务器文件进行转换
 
 直接上代码
-> 读取目录文件，转换为二进制流
-> 前端组件file-preview.vue中fileUrl为 **/api/attachment**
+> 读取目录文件，转换为**二进制流**
+> 前端组件file-preview.vue中**fileUrl**为 **/api/attachment**
 
 核心代码
 
@@ -208,7 +210,7 @@ os.flush();
 ### 四、office文件（Word、Excel、PPT）预览
 
 > 原理：
-> 搭建openOffice服务，将文件转换为pdf，在使用pdf.js预览
+> 搭建**OpenOffice**服务，将文件转换为pdf，在使用pdf.js预览
 
 #### 4.1 搭建openOffice服务
 
@@ -265,7 +267,7 @@ rpm -ivh *rpm
 <!-- openoffice end -->
 ```
 
-<span style="color:red">注意</span>：[jodconverter](https://sourceforge.net/projects/jodconverter/files/)需要单独下载2.2.2版本，之前的版本都不行，而且maven中央仓库没有2.2.2版本。然后再单独导入。下载地址：<https://sourceforge.net/projects/jodconverter/files/>
+<span style="color:red">注意</span>：[jodconverter](https://sourceforge.net/projects/jodconverter/files/)需要单独下载**2.2.2版本**，之前的版本都不行，而且**maven中央仓库没有2.2.2版本**。然后再单独导入。下载地址：<https://sourceforge.net/projects/jodconverter/files/>
 
 单独导入
 
@@ -274,6 +276,7 @@ mvn install:install-file -Dfile="jodconverter-2.2.2.jar" -DgroupId=com.artofsolv
 ```
 
 * 转换代码
+
 核心代码
 
 ```java
@@ -282,6 +285,8 @@ connection.connect();
 DocumentConverter converter = new StreamOpenOfficeDocumentConverter(connection);
 converter.convert(sourceFile, pdfFile);
 ```
+
+完整代码
 
 ```java
 /* 利用openOffice将office文件转换为pdf格式, 然后预览doc, docx, xls, xlsx, ppt, pptx */
@@ -359,7 +364,7 @@ if ("DOC".equals(ext) || "DOCX".equals(ext) || "XLS".equals(ext) || "XLSX".equal
 
 ### 五、图片预览
 
-#### 1. 后端文件流
+#### 5.1 后端文件流
 
 ```java
 /* 预览图片 */
@@ -376,10 +381,10 @@ if ("GIF".equals(ext)) {
 }
 ```
 
-#### 2. 前端预览
+#### 5.2 前端预览
 
 > 采用uni-app的[uni.previewImage](https://uniapp.dcloud.io/api/media/image)接口
-> fileUrl：为文件流访问地址
+> **fileUrl**：为**文件流访问地址**
 
 ```js
 // 预览图片
@@ -552,3 +557,6 @@ public void getFileBytes(@RequestParam("name") String name, @RequestParam("url")
 <br>
 <center>赞助作者</center>
 <center><img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="240" align=center /><center>
+<br>
+
+<center><img src="http://silianpan.cn/wp-content/themes/yusi1.0/img/weixin.gif" width="240" align=center /><center>
