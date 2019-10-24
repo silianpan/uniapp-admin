@@ -37,7 +37,7 @@
 			}
 		},
 		{
-			"path": "pages/file/file_preview",
+			"path": "pages/file/file-preview",
 			"style": {
 				"navigationBarTitleText": "附件预览"
 			}

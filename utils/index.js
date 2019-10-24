@@ -124,7 +124,7 @@ export const filePreview = atta => {
 				case 'pptx':
 					// 转换为pdf进行预览
 					uni.navigateTo({
-						url: '/pages/file/file_preview?name=' + name + '&url=' + url
+						url: '/pages/file/file-preview?name=' + name + '&url=' + url
 					})
 					break
 				case 'jpg':
