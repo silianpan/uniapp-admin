@@ -7,6 +7,8 @@ output: word_document
 
 ## 跨平台（uni-app）文件在线预览解决方案
 
+1024刚过，也祝愿各位码友在今后生活中，身体健康，事事顺心，再无Bug。
+
 ### 一、前言
 
 > 之前写过一篇文章关于上传目录文件：[uni-app系统目录文件上传（非只图片和视频）解决方案](http://silianpan.cn/index.php/2019/09/22/uniapp_file_upload/)，这次来解决文件预览问题。
