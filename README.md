@@ -14,7 +14,12 @@ output: word_document
 </center>
 
 [H5在线预览](http://113.62.127.199/ua/)
+
 [Android APK 下载地址](http://silianpan.cn/wp-content/uploads/2019/10/ua1.0.apk)
+
+[Github](https://github.com/silianpan/uniapp-admin)
+
+[Gitee](https://gitee.com/twofloor/uniapp-admin)
 
 ### 一、前言
 
@@ -277,14 +282,16 @@ request(options = {}) {
 
 ### 七、效果
 
-<center style="font-size:20px">
-<span style="margin-right:10px">H5</span><span style="margin-left:80px">Android APK
-</center>
+<center>
 
-<center class="half">
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/f41aefdd6348fe7e2b29920da6fca9b0.png" width="120" alt="h5" style="margin-right:50px"/>
+#### H5
+
+<img src="http://silianpan.cn/wp-content/uploads/2019/10/f41aefdd6348fe7e2b29920da6fca9b0.png" width="120" alt="h5"/>
+
+#### Android APK
 
 <img src="http://silianpan.cn/wp-content/uploads/2019/10/b252ebdb5654b1d585ec40287e1f4bab.png" width="120" alt="android-apk"/>
+
 </center>
 
 <br>
@@ -298,4 +305,6 @@ request(options = {}) {
 <img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="240" style="margin-right:50px"/>
 
 <img src="http://silianpan.cn/wp-content/themes/yusi1.0/img/weixin.gif" width="240" />
-<center>
+</center>
+
+转载请注明：[溜爸 » 基于uni-app多平台管理系统模板uniapp-admin](http://silianpan.cn/index.php/2019/10/26/uniapp_admin/)
