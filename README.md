@@ -7,7 +7,11 @@ output: word_document
 
 ## 基于uni-app多平台管理系统模板uniapp-admin
 
+<img src="http://silianpan.cn/wp-content/uploads/2019/10/865d433e88d5a5286a871adcd522c3b5.png" width="240" align=center />
 
+![h5](http://silianpan.cn/wp-content/uploads/2019/10/1.gif)
+
+![app](http://silianpan.cn/wp-content/uploads/2019/10/2.gif)
 
 ### 一、前言
 
@@ -268,8 +272,15 @@ request(options = {}) {
 
 大家也可以提出想要的模板或功能
 
-### 七、效果图片
+### 七、效果
 
+#### H5
+
+![h5](http://silianpan.cn/wp-content/uploads/2019/10/f41aefdd6348fe7e2b29920da6fca9b0.png)
+
+#### Android APK
+
+![android-apk](http://silianpan.cn/wp-content/uploads/2019/10/b252ebdb5654b1d585ec40287e1f4bab.png)
 
 <br>
 
