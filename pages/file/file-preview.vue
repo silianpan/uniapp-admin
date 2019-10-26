@@ -9,8 +9,8 @@
 	export default {
 		data() {
 			return {
-				viewerUrl: '/hybrid/html/web/viewer.html',
-				// viewerUrl: globalConfig.baseUrl + '/pdf/web/viewer.html',
+				// viewerUrl: '/hybrid/html/web/viewer.html',
+				viewerUrl: globalConfig.baseUrl + '/pdf/web/viewer.html',
 				allUrl: ''
 			}
 		},

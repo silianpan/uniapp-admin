@@ -1,6 +1,6 @@
 ---
 title: "跨平台（uni-app）文件在线预览解决方案"
-author: liupan
+author: silianpan
 date: 2019-10-23
 output: word_document
 ---
