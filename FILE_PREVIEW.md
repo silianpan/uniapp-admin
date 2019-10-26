@@ -558,7 +558,7 @@ public void getFileBytes(@RequestParam("name") String name, @RequestParam("url")
 ```
 
 <br>
-<center>赞助作者</center>
+<center style="font-size:20px">赞助作者</center>
 <center><img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="240" align=center /><center>
 <br>
 
