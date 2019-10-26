@@ -302,7 +302,7 @@ request(options = {}) {
 <center style="font-size:20px">赞助作者</center>
 <br>
 <center class="half">
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="240" style="margin-right:50px"/>
+<img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="240"/>
 
 <img src="http://silianpan.cn/wp-content/themes/yusi1.0/img/weixin.gif" width="240" />
 </center>
