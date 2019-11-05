@@ -19,6 +19,9 @@ output: word_document
 
 > 文件预览，首先会想到pdf预览，前端做pdf预览，首先也会想到[pdf.js](https://github.com/mozilla/pdf.js)，那我们就从[pdf.js](https://github.com/mozilla/pdf.js)说起。
 
+
+[开源项目uniapp-admin](https://github.com/silianpan/uniapp-admin)
+
 ### 二、PDF预览
 
 > pdf.js开源地址和在线例子
@@ -556,6 +559,10 @@ public void getFileBytes(@RequestParam("name") String name, @RequestParam("url")
     }
 }
 ```
+
+### 六、开源项目
+
+[开源项目uniapp-admin](https://github.com/silianpan/uniapp-admin)
 
 <br>
 <center style="font-size:20px">赞助作者</center>

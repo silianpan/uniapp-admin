@@ -35,6 +35,22 @@ const store = new Vuex.Store({
 				setTimeout(() => {
 					let tmp = { ...params, id: 1, userName: '张三', roleStr: '管理员' }
 					commit('login', tmp)
+					
+					// 关于消息推送的保存
+					// 保存clientid到服务器
+					// #ifdef APP-PLUS
+					const clientInfo = plus.push.getClientInfo()
+					let pushUser = {
+					  clientid: clientInfo.clientid,
+					  appid: clientInfo.appid,
+					  appkey: clientInfo.appkey,
+					  userName: '用户名',
+					  userRole: '用户角色'
+					}
+					// 提交api请求，服务端保存客户端角色信息
+					// Vue.prototype.$minApi.savePushUser(pushUser)
+					// #endif
+					
 					resolve(tmp)
 				}, 1000)
 			})

@@ -32,10 +32,11 @@ output: word_document
   * **UI库** [colorUI css库](http://ext.dcloud.net.cn/plugin?id=239)、[ThorUI组件库](https://ext.dcloud.net.cn/plugin?id=556)([参考UI方案](https://ask.dcloud.net.cn/article/35489))
   * **其他** [uCharts高性能跨全端图表](https://ext.dcloud.net.cn/plugin?id=271)、[mescroll-支持uni-app的下拉刷新上拉加载组件 ](https://ext.dcloud.net.cn/plugin?id=343)、[日期时间选择器tui-datetime](http://ext.dcloud.net.cn/plugin?id=239)
 * **解决方案(重要)**
-  * 文件在线预览方案，另见文章[《跨平台（uni-app）文件在线预览解决方案》](https://juejin.im/post/5db1cdba51882564973bd86f)
+  * 文件在线预览方案，另见文章[《跨平台（uni-app）文件在线预览解决方案》](https://github.com/silianpan/uniapp-admin/blob/master/FILE_PREVIEW.md)
   * 开发环境和生产环境跨域方案
   * APP整包升级/更新方案
   * API调用方案
+  * 消息推送方案，另见文章[《uni-app消息推送方案》](https://github.com/silianpan/uniapp-admin/blob/master/PUSH_MESSAGE.md)
 
 &emsp;&emsp;如果有欠缺的地方，或者有更好的想法，大家可以**多多交流**，文章最后可以加我。
 
@@ -264,23 +265,27 @@ request(options = {}) {
 }
 ```
 
-### 五、问题解决
+### 五、消息推送方案
 
-#### 5.1 怎么获取应用真正的名称和版本信息？
+另见文章[《uni-app消息推送方案》](https://github.com/silianpan/uniapp-admin/blob/master/PUSH_MESSAGE.md)
+
+### 六、问题解决
+
+#### 6.1 怎么获取应用真正的名称和版本信息？
 
 一定要使用plus.runtime.getProperty(plus.runtime.appid, (wgtinfo) =>())，回调函数返回的wgtinfo对象的versionCode做判断，wgtinfo.version是版本字符串，wgtinfo.name是app应用名称
 
-#### 5.2 APP端，模板中v-for不能调用方法，如：v-for="xxx in func(xxx)"，这种情况下，func方法不会调用。具体原理不太清楚，还请大佬能解释一下不？
+#### 6.2 APP端，模板中v-for不能调用方法，如：v-for="xxx in func(xxx)"，这种情况下，func方法不会调用。具体原理不太清楚，还请大佬能解释一下不？
 
 解决办法：提前将数据格式化好，然后套上模板。
 
-### 六、后续计划
+### 七、后续计划
 
 - [ ] 消息推送
 
 大家也可以提出想要的模板或功能
 
-### 七、效果
+### 八、效果
 
 <center>
 

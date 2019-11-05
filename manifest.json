@@ -2,8 +2,8 @@
     "name" : "uniapp-admin",
     "appid" : "",
     "description" : "",
-    "versionName" : "1.0.1",
-    "versionCode" : 101,
+    "versionName" : "1.1.0",
+    "versionCode" : 110,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -16,7 +16,9 @@
             "delay" : 0
         },
         /* 模块配置 */
-        "modules" : {},
+        "modules" : {
+            "Push" : {}
+        },
         "compatible" : {
             "ignoreVersion" : true
         },
@@ -52,7 +54,29 @@
             /* ios打包配置 */
             "ios" : {},
             /* SDK配置 */
-            "sdkConfigs" : {},
+            "sdkConfigs" : {
+                "push" : {
+                    "unipush" : {
+                        "icons" : {
+                            "push" : {
+                                "ldpi" : "unpackage/res/icons/48x48.png",
+                                "mdpi" : "unpackage/res/icons/48x48.png",
+                                "hdpi" : "unpackage/res/icons/72x72.png",
+                                "xhdpi" : "unpackage/res/icons/96x96.png",
+                                "xxhdpi" : "unpackage/res/icons/144x144.png",
+                                "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                            },
+                            "small" : {
+                                "ldpi" : "unpackage/res/icons/18x18.png",
+                                "mdpi" : "unpackage/res/icons/24x24.png",
+                                "hdpi" : "unpackage/res/icons/36x36.png",
+                                "xhdpi" : "unpackage/res/icons/48x48.png",
+                                "xxhdpi" : "unpackage/res/icons/72x72.png"
+                            }
+                        }
+                    }
+                }
+            },
             "icons" : {
                 "android" : {
                     "hdpi" : "unpackage/res/icons/72x72.png",

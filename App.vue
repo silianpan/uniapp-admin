@@ -10,8 +10,34 @@
 			this.initSystem()
 			// 自动登录检测
 			this.autoLogin()
+			// 处理推送消息
+			this.handlePush()
 		},
 		methods: {
+			/**
+			 * 处理推送消息
+			 */
+			handlePush() {
+				// #ifdef APP-PLUS
+				const _self = this
+				const _handlePush = function(message) {
+					// 获取自定义信息
+					let payload = message.payload
+					try {
+						// JSON解析
+						payload = JSON.parse(payload)
+						// 携带自定义信息跳转应用页面
+						uni.navigateTo({
+							url: '/pages/xxx?data=' + JSON.stringify(payload)
+						})
+						
+					} catch(e) {}	
+				}
+				// 事件处理
+				plus.push.addEventListener('click', _handlePush)
+				plus.push.addEventListener('receive', _handlePush)
+				// #endif
+			},
 			/**
 			 * app整包更新检测
 			 */
