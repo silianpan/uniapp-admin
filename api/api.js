@@ -82,6 +82,9 @@ export default {
 		},
 		userPwdModify(params) {
 			return minRequest.post('/post/user/pwd/modify', params)
+		},
+		listAuditProject() {
+			return minRequest.post('/get/audit/project/list')
 		}
 	}
 }
