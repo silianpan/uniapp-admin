@@ -2,6 +2,7 @@ const config = Symbol('config')
 const isCompleteURL = Symbol('isCompleteURL')
 const requestBefore = Symbol('requestBefore')
 const requestAfter = Symbol('requestAfter')
+import { checkLogin, checkResult } from '@/utils/checkResponse'
 
 class MinRequest {
 	[config] = {
@@ -77,14 +78,21 @@ class MinRequest {
 		options.url = url
 		options.data = data
 		options.method = 'GET'
-		return this.request(options)
+		return this.request(options).then(checkLogin).then(checkResult)
 	}
 
 	post(url, data, options = {}) {
 		options.url = url
 		options.data = data
 		options.method = 'POST'
-		return this.request(options)
+		return this.request(options).then(checkLogin).then(checkResult)
+	}
+	
+	delete(url, data, options = {}) {
+		options.url = url
+		options.data = data
+		options.method = 'DELETE'
+		return this.request(options).then(checkLogin).then(checkResult)
 	}
 }
 
@@ -92,7 +100,6 @@ MinRequest.install = function(Vue) {
 	Vue.mixin({
 		beforeCreate: function() {
 			if (this.$options.minRequest) {
-				console.log(this.$options.minRequest)
 				Vue._minRequest = this.$options.minRequest
 			}
 		}

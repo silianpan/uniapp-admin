@@ -95,8 +95,8 @@
 					password: md5(this.item.oldPassword),
 					newpw: md5(this.item.newPassword)
 				}
-				this.$minApi.editUserPwd(params).then(res => {
-					if (res) {
+				this.$minApi.userPwdModify(params).then(res => {
+					if (res.ok()) {
 						this.$refs.modifyPassPopup.close()
 						uni.showToast({
 							title: '修改成功',
@@ -118,9 +118,6 @@
 			},
 			logout() {
 				this.$store.dispatch('logout')
-				uni.reLaunch({
-					url: '/pages/login/login'
-				})
 			},
 			/**
 			 * app整包更新检测

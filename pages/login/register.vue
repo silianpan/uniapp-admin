@@ -65,7 +65,6 @@
 					});
 					return false;
 				}
-				console.log("获取验证码")
 				this.$refs.runCode.$emit('runCode'); //触发倒计时（一般用于请求成功验证码后调用）
 				uni.showToast({
 					icon: 'none',
@@ -120,7 +119,6 @@
 					});
 					return false;
 				}
-				console.log("注册成功")
 				_this.isRotate = true
 				setTimeout(function() {
 					_this.isRotate = false

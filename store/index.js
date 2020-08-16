@@ -20,45 +20,42 @@ const store = new Vuex.Store({
 		}
 	},
 	actions: {
-		login({
-			commit
-		}, params) {
+		login({ commit }, params) {
 			return new Promise((resolve, reject) => {
-				/**
-				 * api请求
-				 * Vue.prototype.$minApi.login().then(res => {
-				 *	 resolve(res)
-				 * }).catch(err => {
-				 *	 reject(err)
-				 * })
-				 */
-				setTimeout(() => {
-					let tmp = { ...params, id: 1, userName: '张三', roleStr: '管理员' }
-					commit('login', tmp)
-					
-					// 关于消息推送的保存
-					// 保存clientid到服务器
-					// #ifdef APP-PLUS
-					const clientInfo = plus.push.getClientInfo()
-					let pushUser = {
-					  clientid: clientInfo.clientid,
-					  appid: clientInfo.appid,
-					  appkey: clientInfo.appkey,
-					  userName: '用户名',
-					  userRole: '用户角色'
+				Vue.prototype.$minApi.login().then(res => {
+					if (res.ok()) {
+						let tmp = { ...params, ...res.data }
+						commit('login', tmp)
+						
+						// 关于消息推送的保存
+						// 保存clientid到服务器
+						// #ifdef APP-PLUS
+						const clientInfo = plus.push.getClientInfo()
+						let pushUser = {
+						  clientid: clientInfo.clientid,
+						  appid: clientInfo.appid,
+						  appkey: clientInfo.appkey,
+						  userName: tmp.userName,
+						  userRole: tmp.roleStr
+						}
+						// 提交api请求，服务端保存客户端角色信息
+						// Vue.prototype.$minApi.savePushUser(pushUser)
+						// #endif
+						
+						resolve(res)
+					} else {
+						reject(res)
 					}
-					// 提交api请求，服务端保存客户端角色信息
-					// Vue.prototype.$minApi.savePushUser(pushUser)
-					// #endif
-					
-					resolve(tmp)
-				}, 1000)
+				}).catch(err => {
+					reject(err)
+				})
 			})
 		},
-		logout({
-			commit
-		}) {
+		logout({ commit }) {
 			commit('logout')
+			uni.reLaunch({
+				url: '/pages/login/login'
+			})
 		}
 	},
 	getters: {

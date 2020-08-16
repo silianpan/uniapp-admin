@@ -74,7 +74,6 @@
 			}
 		},
 		onLoad() {
-			console.log('首页onload')
 			//  高度自适应
 			uni.getSystemInfo({
 				success: res => {
