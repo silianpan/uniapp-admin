@@ -60,7 +60,6 @@
 		mapGetters
 	} from 'vuex'
 	import {
-		getRandomArrayElements,
 		filePreview,
 		formatAuditStatus,
 		formatProjectType
@@ -101,59 +100,7 @@
 					textNoMore: '没有更多数据了'
 				},
 				// 列表数据
-				cardList: [{
-						id: 1,
-						projectName: '培训考试信息管理系统项目',
-						projectType: '软件研发',
-						area: '省内',
-						addr: '四川省',
-						createUser: '张三',
-						auditStatus: '2',
-						createTime: '2019-10-21 17:38',
-						attachment: [{
-							name: '项目申请',
-							url: '1.pdf'
-						}]
-					},
-					{
-						id: 2,
-						projectName: '国旗护卫队服装采购项目',
-						projectType: '采购',
-						area: '省外',
-						addr: '云南省',
-						createUser: '李四',
-						auditStatus: '2',
-						createTime: '2019-10-19 17:00',
-						attachment: [{
-								name: '附件1',
-								url: '2.pdf'
-							},
-							{
-								name: '附件2',
-								url: '3.pdf'
-							}
-						]
-					},
-					{
-						id: 3,
-						projectName: '超声高频外科集成系统（超声刀）项目',
-						projectType: '系统集成',
-						area: '省外',
-						addr: '广东省',
-						createUser: '王五',
-						auditStatus: '2',
-						createTime: '2019-09-21 13:00',
-						attachment: [{
-								name: '附件3',
-								url: '4.pdf'
-							},
-							{
-								name: '附件4',
-								url: '5.pdf'
-							}
-						]
-					}
-				]
+				cardList: []
 			}
 		},
 		methods: {
@@ -180,35 +127,35 @@
 				/**
 				 * todo: api请求分页查询项目待办
 				 */
-				setTimeout(() => {
-					this.cardList = getRandomArrayElements(this.cardList, 2)
-					// 成功隐藏下拉加载状态
-					// 方法一(推荐): 后台接口有返回列表的总页数 totalPage
-					mescroll.endByPage(this.cardList.length, 3)
-					this.$nextTick(() => {
-						mescroll.endSuccess(this.cardList.length)
-					})
-				}, 2000)
+				this.$minApi.listAuditProject().then(res => {
+					if (res.ok()) {
+						this.cardList = res.data
+						// 成功隐藏下拉加载状态
+						// 方法一(推荐): 后台接口有返回列表的总页数 totalPage
+						mescroll.endByPage(this.cardList.length, this.cardList.length)
+						this.$nextTick(() => {
+							mescroll.endSuccess(this.cardList.length)
+						})
+					}
+				})
 			},
 			clickCard(item) {
 				uni.navigateTo({
 					url: '/pages/project/project-detail?data=' + JSON.stringify(item)
 				})
 			},
-			queryByName(name) {
+			async queryByName(name) {
 				uni.showLoading({
 					title: '正在查询数据...'
 				})
-				/**
-				 * todo: api请求查询项目待办
-				 */
-				setTimeout(() => {
-					this.cardList = getRandomArrayElements(this.cardList, 1)
-					uni.hideLoading()
-				}, 3000)
+				const res = await this.$minApi.listAuditProject()
+				if (res.ok()) {
+					this.cardList = res.data
+				}
+				uni.hideLoading()
 			},
 			updateQuery() {
-				this.queryByName('')
+				this.queryByName()
 			}
 		}
 	}

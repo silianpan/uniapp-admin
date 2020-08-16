@@ -70,7 +70,6 @@
 		mapGetters
 	} from 'vuex'
 	import {
-		getRandomArrayElements,
 		filePreview,
 		formatAuditStatus,
 		formatProjectType

@@ -68,7 +68,6 @@
 		mapGetters
 	} from 'vuex'
 	import {
-		getRandomArrayElements,
 		filePreview,
 		formatAuditStatus
 	} from '@/utils/index.js'
@@ -113,7 +112,6 @@
 			}
 		},
 		methods: {
-			getRandomArrayElements,
 			filePreview,
 			formatAuditStatus,
 			/*下拉刷新的回调, 有三种处理方式: */
