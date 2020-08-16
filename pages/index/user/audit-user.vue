@@ -64,9 +64,7 @@
 	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
 	import auditIdea from '@/pages/index/audit-idea.vue'
-	import {
-		mapGetters
-	} from 'vuex'
+	import { mapGetters } from 'vuex'
 	import {
 		filePreview,
 		formatAuditStatus

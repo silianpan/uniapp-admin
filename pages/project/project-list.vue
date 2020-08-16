@@ -56,9 +56,7 @@
 	import uniCard from "@/components/uni-card/uni-card"
 	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
-	import {
-		mapGetters
-	} from 'vuex'
+	import { mapGetters } from 'vuex'
 	import {
 		filePreview,
 		formatAuditStatus,

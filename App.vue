@@ -1,8 +1,6 @@
 <script>
 	import Vue from 'vue'
-	import {
-		mapGetters
-	} from 'vuex'
+	import { mapGetters } from 'vuex'
 	export default {
 		computed: mapGetters(['user']),
 		onLaunch: function() {
@@ -11,7 +9,7 @@
 			// 自动登录检测
 			this.autoLogin()
 			// 处理推送消息
-			this.handlePush()
+			// this.handlePush()
 		},
 		methods: {
 			/**

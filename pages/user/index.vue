@@ -58,9 +58,7 @@
 <script>
 	import uniPopup from '@/components/uni-popup/uni-popup.vue'
 	import md5 from '@/common/lib/md5.min.js'
-	import {
-		mapGetters
-	} from 'vuex'
+	import { mapGetters } from 'vuex'
 	export default {
 		components: {
 			uniPopup
