@@ -112,59 +112,7 @@
 					textNoMore: '没有更多数据了'
 				},
 				// 列表数据
-				cardList: [{
-						id: 1,
-						projectName: '培训考试信息管理系统项目',
-						projectType: '软件研发',
-						area: '省内',
-						addr: '四川省',
-						createUser: '张三',
-						auditStatus: '2',
-						createTime: '2019-10-21 17:38',
-						attachment: [{
-							name: '项目申请',
-							url: '1.pdf'
-						}]
-					},
-					{
-						id: 2,
-						projectName: '国旗护卫队服装采购项目',
-						projectType: '采购',
-						area: '省外',
-						addr: '云南省',
-						createUser: '李四',
-						auditStatus: '2',
-						createTime: '2019-10-19 17:00',
-						attachment: [{
-								name: '附件1',
-								url: '2.pdf'
-							},
-							{
-								name: '附件2',
-								url: '3.pdf'
-							}
-						]
-					},
-					{
-						id: 3,
-						projectName: '超声高频外科集成系统（超声刀）项目',
-						projectType: '系统集成',
-						area: '省外',
-						addr: '广东省',
-						createUser: '王五',
-						auditStatus: '2',
-						createTime: '2019-09-21 13:00',
-						attachment: [{
-								name: '附件3',
-								url: '4.pdf'
-							},
-							{
-								name: '附件4',
-								url: '5.pdf'
-							}
-						]
-					}
-				]
+				cardList: []
 			}
 		},
 		methods: {

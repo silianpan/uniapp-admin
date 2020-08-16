@@ -83,8 +83,13 @@ export default {
 		userPwdModify(params) {
 			return minRequest.post('/post/user/pwd/modify', params)
 		},
+		// 项目审批列表
 		listAuditProject() {
-			return minRequest.post('/get/audit/project/list')
+			return minRequest.get('/get/audit/project/list')
+		},
+		// 用户审批列表
+		listAuditUser() {
+			return minRequest.get('/get/audit/user/list')
 		}
 	}
 }

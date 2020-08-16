@@ -109,61 +109,7 @@
 					textNoMore: '没有更多数据了'
 				},
 				// 列表数据
-				cardList: [{
-						id: 1,
-						orgName: '阿里巴巴网络技术有限公司',
-						orgNo: '12345678901234567890',
-						orgType: '企业',
-						orgRepresent: '张三',
-						orgRegAddress: '杭州',
-						status: '2',
-						attachment: [{
-								name: '附件1',
-								url: '1.pdf'
-							},
-							{
-								name: '附件2',
-								url: '2.pdf'
-							}
-						]
-					},
-					{
-						id: 2,
-						orgName: '华为技术有限公司',
-						orgNo: '12345678901234567890',
-						orgType: '企业',
-						orgRepresent: '李四',
-						orgRegAddress: '深圳',
-						status: '2',
-						attachment: [{
-								name: '附件3',
-								url: '3.pdf'
-							},
-							{
-								name: '附件4',
-								url: '4.pdf'
-							}
-						]
-					},
-					{
-						id: 3,
-						orgName: '深圳市腾讯计算机系统有限公司',
-						orgNo: '12345678901234567890',
-						orgType: '企业',
-						orgRepresent: '王五',
-						orgRegAddress: '深圳',
-						status: '2',
-						attachment: [{
-								name: '附件5',
-								url: '5.pdf'
-							},
-							{
-								name: '附件6',
-								url: '6.pdf'
-							}
-						]
-					}
-				]
+				cardList: []
 			}
 		},
 		methods: {
@@ -181,46 +127,34 @@
 					mescroll.endErr()
 					return
 				}
+				
+				// 此时mescroll会携带page的参数:
+				let pageNum = mescroll.num // 页码, 默认从1开始
+				let pageSize = mescroll.size // 页长, 默认每页10条
 
-				/**
-				 * todo: api请求
-				 */
-				setTimeout(() => {
-					this.cardList = getRandomArrayElements(this.cardList, 2)
+				this.$minApi.listAuditUser({}, pageNum, pageSize).then(res => {
+					// 接口返回的当前页数据列表 (数组)
+					let curPageData = res.data
+					// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
+					let totalPage = res.data.length
+					// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
+					let totalSize = res.data.length
+					// 接口返回的是否有下一页 (true/false)
+					// let hasNext = res.hasNextPage
+
+					if (mescroll.num == 1) this.cardList = [] //如果是第一页需手动置空列表
+					this.cardList = this.cardList.concat(curPageData) //追加新数据
+
 					// 成功隐藏下拉加载状态
 					// 方法一(推荐): 后台接口有返回列表的总页数 totalPage
-					mescroll.endByPage(this.cardList.length, 3)
+					mescroll.endByPage(curPageData.length, totalPage)
 					this.$nextTick(() => {
-						mescroll.endSuccess(this.cardList.length)
+						mescroll.endSuccess(curPageData.length)
 					})
-				}, 2000)
-				// 	// 此时mescroll会携带page的参数:
-				// 	let pageNum = mescroll.num // 页码, 默认从1开始
-				// 	let pageSize = mescroll.size // 页长, 默认每页10条
-
-				// 	this.$minApi.pageQueryUserData({}, pageNum, pageSize).then(res => {
-				// 		// 接口返回的当前页数据列表 (数组)
-				// 		let curPageData = res.rows
-				// 		// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
-				// 		let totalPage = res.totalPageCount
-				// 		// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
-				// 		let totalSize = res.total
-				// 		// 接口返回的是否有下一页 (true/false)
-				// 		let hasNext = res.hasNextPage
-
-				// 		if (mescroll.num == 1) this.cardList = [] //如果是第一页需手动置空列表
-				// 		this.cardList = this.cardList.concat(curPageData) //追加新数据
-
-				// 		// 成功隐藏下拉加载状态
-				// 		// 方法一(推荐): 后台接口有返回列表的总页数 totalPage
-				// 		mescroll.endByPage(curPageData.length, totalPage)
-				// 		this.$nextTick(() => {
-				// 			mescroll.endSuccess(curPageData.length)
-				// 		})
-				// 	}).catch(() => {
-				// 		// 失败隐藏下拉加载状态
-				// 		mescroll.endErr()
-				// 	})
+				}).catch(() => {
+					// 失败隐藏下拉加载状态
+					mescroll.endErr()
+				})
 			},
 			clickCard(item) {
 				uni.navigateTo({
@@ -237,31 +171,22 @@
 				this.isPass = false
 				this.$refs.popupAuditIdeaRef.$refs.share.open()
 			},
-			queryByName(name) {
+			async queryByName(name) {
 				uni.showLoading({
 					title: '正在查询数据...'
 				})
-				/**
-				 * todo: api请求
-				 */
-				setTimeout(() => {
-					this.cardList = getRandomArrayElements(this.cardList, 1)
-					uni.hideLoading()
-				}, 3000)
-
-				// this.$minApi.queryUserData({
-				// 	orgName: name
-				// }).then(res => {
-				// 	uni.hideLoading()
-				// 	this.cardList = res
-				// })
+				const res = await this.$minApi.listAuditUser()
+				if (res.ok()) {
+					this.cardList = res.data
+				}
+				uni.hideLoading()
 			},
 			updateQuery() {
 				// 无效
 				// if (this.mescroll !== null) {
 				// 	this.downCallback(this.mescroll)
 				// }
-				this.queryByName('')
+				this.queryByName()
 			}
 		}
 	}
