@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<uni-nav-bar :fixed="true" color="#333333" background-color="#4364F7" :border="false">
+		<uni-nav-bar :fixed="true" color="#333333" :background-color="themeBgColor" :border="false">
 			<view class="input-view">
 				<uni-icons type="search" size="22" color="#666666" />
 				<input v-model="searchVal" confirm-type="search" class="input" type="text" placeholder="搜索项目" @confirm="search">
@@ -16,7 +16,9 @@
 		</swiper>
 	</view>
 </template>
+
 <script>
+	import { mapGetters } from 'vuex'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
 	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
 	import projectList from '@/pages/project/project-list.vue'
@@ -25,6 +27,9 @@
 			uniIcons,
 			uniNavBar,
 			projectList
+		},
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode']),
 		},
 		data() {
 			return {
@@ -37,6 +42,10 @@
 			uni.setNavigationBarTitle({
 			    title: this.$t('Project')
 			})
+			this.setNavBarColor()
+		},
+		onShow() {
+			this.setNavBarColor()
 		},
 		onLoad() {
 			//  高度自适应
@@ -47,6 +56,17 @@
 			})
 		},
 		methods: {
+			setNavBarColor() {
+				// navBar-bg-color
+				uni.setNavigationBarColor({
+				    frontColor: '#ffffff',
+				    backgroundColor: this.themeBgColor,
+				    animation: {
+				        duration: 400,
+				        timingFunc: 'easeIn'
+				    }
+				})
+			},
 			search() {
 				this.$refs.projectListRef.queryByName(this.searchVal)
 			},

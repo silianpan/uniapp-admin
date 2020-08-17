@@ -151,6 +151,7 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import uniGoodsNav from '@/components/uni-goods-nav/uni-goods-nav.vue'
 	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
@@ -165,6 +166,9 @@
 			uniTag,
 			uniIcons,
 			auditIdea
+		},
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode']),
 		},
 		data() {
 			return {
@@ -190,6 +194,15 @@
 		onReady() {
 			uni.setNavigationBarTitle({
 			    title: this.$t('ProjectApproval')
+			})
+			// navBar-bg-color
+			uni.setNavigationBarColor({
+			    frontColor: '#ffffff',
+			    backgroundColor: this.themeBgColor,
+			    animation: {
+			        duration: 400,
+			        timingFunc: 'easeIn'
+			    }
 			})
 		},
 		onLoad(options) {

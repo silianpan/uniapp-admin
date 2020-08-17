@@ -10,7 +10,7 @@
 				 confirm-type="search"></input>
 			</view>
 		</view> -->
-		<uni-nav-bar :fixed="true" color="#333333" background-color="#4364F7" :border="false">
+		<uni-nav-bar :fixed="true" color="#333333" :background-color="themeBgColor" :border="false">
 			<view class="input-view">
 				<uni-icons type="search" size="22" color="#666666" />
 				<input v-model="searchVal" confirm-type="search" class="input" type="text" placeholder="搜索项目/机构" @confirm="search">
@@ -19,7 +19,7 @@
 			<!-- <uni-search-bar style="width: 100%;" placeholder="搜索项目/机构" radius="100" clearButton="auto" @confirm="search" /> -->
 		</uni-nav-bar>
 
-		<uni-nav-bar :fixed="true" color="#333333" background-color="#4364F7" :border="false">
+		<uni-nav-bar :fixed="true" color="#333333" :background-color="themeBgColor" :border="false">
 			<scroll-view scroll-x scroll-with-animation :scroll-left="scrollLeft" style="z-index: 9999;">
 				<!-- <tui-tabs :tabs="tabbar" :currentTab="currentTab>1?0:currentTab" @change="swichNav" itemWidth="50%" :bgColor="bgColor" :color="'#666'" :selectedColor="'#5677fc'"></tui-tabs> -->
 				<view class="tui-tabs-view tui-tabs-relative" style="height:80rpx;padding:0 30rpx;background:#FFFFFF;top:auto">
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
 	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
 	import auditUser from './user/audit-user'
@@ -58,6 +59,9 @@
 			uniNavBar,
 			auditUser,
 			auditProject
+		},
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode'])
 		},
 		data() {
 			return {
@@ -77,6 +81,12 @@
 			uni.setNavigationBarTitle({
 			    title: this.$t('ToDo')
 			})
+			this.setNavBarColor()
+		},
+		watch: {
+			themeBgColor() {
+				this.setNavBarColor()
+			}
 		},
 		onLoad() {
 			//  高度自适应
@@ -89,6 +99,9 @@
 			})
 		},
 		onShow(e) {
+			// setNavBar
+			this.setNavBarColor()
+			// pages
 			let pages = getCurrentPages()
 			let currPage = pages[pages.length - 1]
 			if (currPage.isDoRefresh === true) {
@@ -97,6 +110,17 @@
 			}
 		},
 		methods: {
+			setNavBarColor() {
+				// navBar-bg-color
+				uni.setNavigationBarColor({
+				    frontColor: '#ffffff',
+				    backgroundColor: this.themeBgColor,
+				    animation: {
+				        duration: 400,
+				        timingFunc: 'easeIn'
+				    }
+				})
+			},
 			// swichNav(e) {
 			// 	this.currentTab = e.index
 			// },

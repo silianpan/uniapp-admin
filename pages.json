@@ -36,6 +36,9 @@
 		},
 		{
 			"path": "pages/user/index"
+		},
+		{
+			"path": "pages/user/setting"
 		}
 	],
 	"tabBar": {
@@ -61,10 +64,10 @@
 		}]
 	},
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "uniapp-admin",
-		"navigationBarBackgroundColor": "#4364F7",
-		"backgroundColor": "#F8F8F8"
+		// "navigationBarTextStyle": "white",
+		// "navigationBarTitleText": "uniapp-admin",
+		// "navigationBarBackgroundColor": "#4364F7",
+		// "backgroundColor": "#F8F8F8"
 		// "mp-alipay": {
 		// 	/* 支付宝小程序特有相关 */
 		// 	"transparentTitle": "always",

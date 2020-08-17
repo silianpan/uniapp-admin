@@ -51,15 +51,28 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import tuiDatetime from "@/components/tui/tui-datetime.vue"
 	var graceChecker = require("../../../utils/graceChecker.js")
 	export default {
 		components: {
 			tuiDatetime
 		},
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode']),
+		},
 		onReady() {
 			uni.setNavigationBarTitle({
 			    title: this.$t('ProjectAdjust')
+			})
+			// navBar-bg-color
+			uni.setNavigationBarColor({
+			    frontColor: '#ffffff',
+			    backgroundColor: this.themeBgColor,
+			    animation: {
+			        duration: 400,
+			        timingFunc: 'easeIn'
+			    }
 			})
 		},
 		onLoad(options) {

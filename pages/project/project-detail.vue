@@ -147,6 +147,7 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
 	import {
@@ -157,6 +158,9 @@
 		components: {
 			uniTag,
 			uniIcons
+		},
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode']),
 		},
 		data() {
 			return {
@@ -182,6 +186,15 @@
 		onReady() {
 			uni.setNavigationBarTitle({
 			    title: this.$t('ProjectDetail')
+			})
+			// navBar-bg-color
+			uni.setNavigationBarColor({
+			    frontColor: '#ffffff',
+			    backgroundColor: this.themeBgColor,
+			    animation: {
+			        duration: 400,
+			        timingFunc: 'easeIn'
+			    }
 			})
 		},
 		onLoad(options) {

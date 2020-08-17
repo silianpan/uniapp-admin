@@ -20,6 +20,7 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import ProjectTimeTable from '@/pages/analysis/time-table.vue'
 	import UchartsDemo from '@/pages/analysis/ucharts-demo.vue'
 	export default {
@@ -27,15 +28,35 @@
 			ProjectTimeTable,
 			UchartsDemo
 		},
-		onReady() {
-			uni.setNavigationBarTitle({
-			    title: this.$t('Statistics')
-			})
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode']),
 		},
 		data() {
 			return {
 				projectNum: 199,
 				userNum: 128
+			}
+		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('Statistics')
+			})
+			this.setNavBarColor()
+		},
+		onShow() {
+			this.setNavBarColor()
+		},
+		methods: {
+			setNavBarColor() {
+				// navBar-bg-color
+				uni.setNavigationBarColor({
+				    frontColor: '#ffffff',
+				    backgroundColor: this.themeBgColor,
+				    animation: {
+				        duration: 400,
+				        timingFunc: 'easeIn'
+				    }
+				})
 			}
 		}
 	}

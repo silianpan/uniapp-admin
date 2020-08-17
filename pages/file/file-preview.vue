@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import globalConfig from '@/config'
 	export default {
 		data() {
@@ -14,9 +15,21 @@
 				allUrl: ''
 			}
 		},
+		computed: {
+			...mapGetters(['themeBgColor', 'darkMode']),
+		},
 		onReady() {
 			uni.setNavigationBarTitle({
 			    title: this.$t('FilePreview')
+			})
+			// navBar-bg-color
+			uni.setNavigationBarColor({
+			    frontColor: '#ffffff',
+			    backgroundColor: this.themeBgColor,
+			    animation: {
+			        duration: 400,
+			        timingFunc: 'easeIn'
+			    }
 			})
 			// #ifdef APP-PLUS
 			var currentWebview = this.$mp.page.$getAppWebview() //获取当前页面的webview对象

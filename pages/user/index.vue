@@ -24,6 +24,7 @@
 			</view>
 		</view>
 		<view class="padding-lr padding-tb-xs">
+			<button class="cu-btn block shadow bg-gradual-pink margin" @tap="tapSettings">软件设置</button>
 			<button class="cu-btn block shadow bg-gradual-blue margin" @tap="modifyPass">修改密码</button>
 			<button class="cu-btn block shadow bg-gradual-orange margin" @tap="appUpgrade">软件更新</button>
 			<button class="cu-btn block shadow bg-white margin text-red" @tap="logout">退出登录</button>
@@ -56,15 +57,15 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import uniPopup from '@/components/uni-popup/uni-popup.vue'
 	import md5 from '@/common/lib/md5.min.js'
-	import { mapGetters } from 'vuex'
 	export default {
 		components: {
 			uniPopup
 		},
 		computed: {
-			...mapGetters(['user'])
+			...mapGetters(['user', 'themeBgColor', 'darkMode'])
 		},
 		data() {
 			return {
@@ -78,10 +79,14 @@
 				}
 			}
 		},
+		onShow() {
+			this.setNavBarColor()
+		},
 		onReady() {
 			uni.setNavigationBarTitle({
 			    title: this.$t('Profile')
 			})
+			this.setNavBarColor()
 		},
 		onLoad() {
 			//#ifdef APP-PLUS
@@ -92,6 +97,17 @@
 			//#endif
 		},
 		methods: {
+			setNavBarColor() {
+				// navBar-bg-color
+				uni.setNavigationBarColor({
+				    frontColor: '#ffffff',
+				    backgroundColor: this.themeBgColor,
+				    animation: {
+				        duration: 400,
+				        timingFunc: 'easeIn'
+				    }
+				})
+			},
 			okClick() {
 				const params = {
 					id: this.user.id,
@@ -121,6 +137,11 @@
 			},
 			logout() {
 				this.$store.dispatch('logout')
+			},
+			tapSettings() {
+				uni.navigateTo({
+					url: '/pages/user/setting'
+				})
 			},
 			/**
 			 * app整包更新检测
