@@ -16,6 +16,56 @@ export default {
 		}
 	},
 	actions: {
+		autoLogin({ commit, getters, dispatch }) {
+			// 判断本地是否有账号信息，如果有，就自动重新登录
+			if (getters.user && getters.user.id && getters.user.name && getters.user.passwd) {
+				const params = {
+					name: getters.user.name,
+					passwd: getters.user.passwd
+				}
+				uni.showLoading({
+					title: '自动登录中...'
+				})
+				dispatch('login', params).then(res => {
+					uni.hideLoading()
+					// uni.showToast({
+					// 	title: '已自动登录！',
+					// 	icon: 'success'
+					// })
+					setTimeout(() => {
+						uni.reLaunch({
+							url: '/pages/index/index'
+						})
+					}, 1000)
+				}).catch(() => {
+					uni.hideLoading()
+					uni.showToast({
+						title: '会话过期，请重新登录！',
+						icon: 'none'
+					})
+					setTimeout(() => {
+						uni.reLaunch({
+							url: '/pages/login/login'
+						})
+					}, 1000)
+				})
+			} else {
+				// 如果本地没有账号信息，就提示用户必须登录
+				uni.showModal({
+					title: '未登录',
+					content: '您未登录，需要登录后才能继续',
+					showCancel: false,
+					confirmText: '确定',
+					success: res => {
+						if (res.confirm) {
+							uni.reLaunch({
+								url: '/pages/login/login'
+							})
+						}
+					}
+				})
+			}
+		},
 		login({ commit }, params) {
 			return new Promise((resolve, reject) => {
 				Vue.prototype.$minApi.login().then(res => {
