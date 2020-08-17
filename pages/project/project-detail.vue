@@ -1,8 +1,8 @@
 <!-- 项目明细 -->
 <template>
-	<view>
+	<view :class="darkMode?'custom-dark':'custom-light'">
 		<view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">审核状态</view>
 					<view class="flex-item-70">
@@ -11,7 +11,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">附件</view>
 					<view class="flex-item-70">
@@ -21,7 +21,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white" v-if="item.opinionList && item.opinionList.length > 0">
+			<view class="padding-lr padding-tb-xs detail-item" v-if="item.opinionList && item.opinionList.length > 0">
 				<view class="uni-flex uni-row">
 					<view class="uni-timeline">
 						<!-- opIndex===0?'uni-timeline-first-item':(opIndex===(item.opinionList.length-1)?'uni-timeline-last-item':'') -->
@@ -41,102 +41,102 @@
 					</view>
 				</view>
 			</view>
-			<view class="cu-bar bg-white solid-bottom">
+			<view class="cu-bar detail-item solid-bottom">
 				<view class="action">
 					<text class="cuIcon-title text-blue"></text>项目信息
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">项目名称</view>
 					<view class="flex-item-70">{{item.projectName}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">项目编号</view>
 					<view class="flex-item-70">{{item.projectNo}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">项目类别</view>
 					<view class="flex-item-70">{{item.projectType}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">项目区域</view>
 					<view class="flex-item-70">{{item.area}}</view>
 				</view>
 			</view>
 
-			<view class="cu-bar bg-white solid-bottom">
+			<view class="cu-bar detail-item solid-bottom">
 				<view class="action">
 					<text class="cuIcon-title text-blue"></text>立项信息
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">立项人</view>
 					<view class="flex-item-70">{{item.createUser}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">立项时间</view>
 					<view class="flex-item-70">{{item.createTime}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">预计开始时间</view>
 					<view class="flex-item-70">{{item.startTime}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">预计结束时间</view>
 					<view class="flex-item-70">{{item.endTime}}</view>
 				</view>
 			</view>
 
-			<view class="cu-bar bg-white solid-bottom">
+			<view class="cu-bar detail-item solid-bottom">
 				<view class="action">
 					<text class="cuIcon-title text-blue"></text>其他信息
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">业主单位</view>
 					<view class="flex-item-70">{{item.ownerUnit}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">建设单位</view>
 					<view class="flex-item-70">{{item.buildUnit}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">项目紧急程度</view>
 					<view class="flex-item-70">{{item.agencyDegree}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">人力投入情况</view>
 					<view class="flex-item-70">{{item.human}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">甲方资金来源</view>
 					<view class="flex-item-70">{{item.aFoundSource}}</view>
 				</view>
 			</view>
-			<view class="padding-lr padding-tb-xs bg-white">
+			<view class="padding-lr padding-tb-xs detail-item">
 				<view class="uni-flex uni-row">
 					<view class="flex-item-30">项目描述</view>
 					<view class="flex-item-70">{{item.descript}}</view>

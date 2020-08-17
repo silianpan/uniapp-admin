@@ -1,6 +1,6 @@
 <!-- 单位明细 -->
 <template>
-	<view>
+	<view :class="darkMode?'custom-dark':'custom-light'">
 		<view class="place-detail">
 			<view class="padding-lr padding-tb-xs bg-white">
 				<view class="uni-flex uni-row">
