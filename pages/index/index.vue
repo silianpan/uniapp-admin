@@ -49,16 +49,18 @@
 			auditProject
 		},
 		computed: {
-			...mapGetters(['themeBgColor', 'darkMode'])
+			...mapGetters(['themeBgColor', 'darkMode']),
+			tabbar() {
+				return [{
+					name: this.$t('ProjectApproval')
+				}, {
+					name: this.$t('UserApproval')
+				}]
+			}
 		},
 		data() {
 			return {
 				bgColor: '#FFFFFF',
-				tabbar: [{
-					name: '项目审批'
-				}, {
-					name: '用户审批'
-				}],
 				winHeight: "", // 窗口高度
 				currentTab: 0, // 预设当前项的值
 				scrollLeft: 0, // tab标题的滚动条位置

@@ -2,32 +2,32 @@
 	<view :class="darkMode?'custom-dark':'custom-light'" class="w-h-100">
 		<view class="cu-bar solid-bottom">
 			<view class="action">
-				<text class="cuIcon-title text-blue"></text>基本信息
+				<text class="cuIcon-title text-blue"></text>{{$t('BasicInfo')}}
 			</view>
 		</view>
 		<view class="padding-lr padding-tb-xs">
 			<view class="uni-flex uni-row">
-				<view class="flex-item-30">用户名</view>
+				<view class="flex-item-30">{{$t('UserName')}}</view>
 				<view class="flex-item-70">{{user?user.name:''}}</view>
 			</view>
 		</view>
 		<view class="padding-lr padding-tb-xs">
 			<view class="uni-flex uni-row">
-				<view class="flex-item-30">姓名</view>
+				<view class="flex-item-30">{{$t('Name')}}</view>
 				<view class="flex-item-70">{{user?user.userName:''}}</view>
 			</view>
 		</view>
 		<view class="padding-lr padding-tb-xs">
 			<view class="uni-flex uni-row">
-				<view class="flex-item-30">角色</view>
+				<view class="flex-item-30">{{$t('Role')}}</view>
 				<view class="flex-item-70">{{user?user.roleStr:''}}</view>
 			</view>
 		</view>
 		<view class="padding-lr padding-tb-xs">
-			<button class="cu-btn block shadow bg-gradual-pink margin" @tap="tapSettings">软件设置</button>
-			<button class="cu-btn block shadow bg-gradual-blue margin" @tap="modifyPass">修改密码</button>
-			<button class="cu-btn block shadow bg-gradual-orange margin" @tap="appUpgrade">软件更新</button>
-			<button class="cu-btn block shadow bg-white margin text-red" @tap="logout">退出登录</button>
+			<button class="cu-btn block shadow bg-gradual-pink margin" @tap="tapSettings">{{$t('Settings')}}</button>
+			<button class="cu-btn block shadow bg-gradual-blue margin" @tap="modifyPass">{{$t('ChangePassword')}}</button>
+			<button class="cu-btn block shadow bg-gradual-orange margin" @tap="appUpgrade">{{$t('Upgrade')}}</button>
+			<button class="cu-btn block shadow bg-white margin text-red" @tap="logout">{{$t('SignOut')}}</button>
 		</view>
 		<view v-if="appInfo.version" class="text-grey text-center">
 			{{appInfo.name}} {{appInfo.version}}

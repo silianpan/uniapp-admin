@@ -5,13 +5,13 @@
 				<view class="solid-bottom text-xxl padding">
 					<text class="analysis-num">{{userNum}}</text>
 				</view>
-				<view class="padding">注册用户</view>
+				<view class="padding">{{$t('RegisteredUser')}}</view>
 			</view>
 			<view class="flex-sub text-center">
 				<view class="solid-bottom text-xxl padding">
 					<text class="analysis-num">{{projectNum}}</text>
 				</view>
-				<view class="padding">本月项目</view>
+				<view class="padding">{{$t('ProjectThisMonth')}}</view>
 			</view>
 		</view>
 		<ucharts-demo></ucharts-demo>
