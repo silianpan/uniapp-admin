@@ -1,15 +1,15 @@
 <template>
-	<view>
-		<view class="bg-white solids-bottom padding-xs flex align-center">
+	<view :class="darkMode?'custom-dark':'custom-light'">
+		<view class="analysis padding-xs flex align-center">
 			<view class="flex-sub text-center">
 				<view class="solid-bottom text-xxl padding">
-					<text class="text-blue">{{userNum}}</text>
+					<text class="analysis-num">{{userNum}}</text>
 				</view>
 				<view class="padding">注册用户</view>
 			</view>
 			<view class="flex-sub text-center">
 				<view class="solid-bottom text-xxl padding">
-					<text class="text-blue">{{projectNum}}</text>
+					<text class="analysis-num">{{projectNum}}</text>
 				</view>
 				<view class="padding">本月项目</view>
 			</view>

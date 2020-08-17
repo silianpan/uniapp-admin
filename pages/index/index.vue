@@ -1,15 +1,5 @@
 <template>
 	<view>
-		<!-- <cu-custom bgColor="bg-gradual-bluelagoo" :isBack="false">
-			<block slot="content">待办</block>
-		</cu-custom> -->
-		<!-- <view class="cu-bar bg-blue2 search">
-			<view class="search-form radius">
-				<text class="cuIcon-search"></text>
-				<input @focus="InputFocus" @blur="InputBlur" :adjust-position="false" type="text" placeholder="搜索项目/机构"
-				 confirm-type="search"></input>
-			</view>
-		</view> -->
 		<uni-nav-bar :fixed="true" color="#333333" :background-color="themeBgColor" :border="false">
 			<view class="input-view">
 				<uni-icons type="search" size="22" color="#666666" />

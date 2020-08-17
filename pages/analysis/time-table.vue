@@ -2,7 +2,7 @@
 <template>
 	<view>
 		<view v-for="(value, key) in weekDate" :key="key">
-			<view class="cu-bar bg-white solid-bottom margin-top-xs">
+			<view class="cu-bar solid-bottom margin-top-xs">
 				<view class="action">
 					<text class="cuIcon-title text-blue"></text>{{value.title}}
 				</view>

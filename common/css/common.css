@@ -1,3 +1,12 @@
+page, uni-page-body, #app {
+	height: 100%!important;
+}
+
+.w-h-100 {
+	height: 100%;
+	width: 100%;
+}
+
 .uni-flex {
 	display: flex;
 }

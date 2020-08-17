@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view :class="darkMode?'custom-dark':'custom-light'" class="w-h-100">
 		<view class="cu-bar solid-bottom">
 			<view class="action">
 				<text class="cuIcon-title text-blue"></text>基本信息

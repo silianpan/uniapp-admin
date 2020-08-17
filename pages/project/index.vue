@@ -7,7 +7,7 @@
 				<uni-icons :color="'#999999'" v-if="searchVal!==''" class="icon-clear" type="clear" size="22" @click="clear" />
 			</view>
 		</uni-nav-bar>
-		<swiper class="tab-content" :style="{height:winHeight+'px'}">
+		<swiper :class="darkMode?'custom-dark':'custom-light'" class="tab-content" :style="{height:winHeight+'px'}">
 			<swiper-item>
 				<scroll-view scroll-y class="scoll-y">
 					<project-list ref="projectListRef"></project-list>
