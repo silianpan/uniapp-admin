@@ -9,7 +9,7 @@
 			// 自动登录检测
 			this.autoLogin()
 			// 处理推送消息
-			// this.handlePush()
+			this.handlePush()
 		},
 		methods: {
 			/**
