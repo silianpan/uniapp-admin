@@ -99,14 +99,14 @@ class MinRequest {
 MinRequest.install = function(Vue) {
 	Vue.mixin({
 		beforeCreate: function() {
-			if (this.$options.minRequest) {
-				Vue._minRequest = this.$options.minRequest
+			if (this.$options.minApi) {
+				Vue._minApi = this.$options.minApi
 			}
 		}
 	})
 	Object.defineProperty(Vue.prototype, '$minApi', {
 		get: function() {
-			return Vue._minRequest.apis
+			return Vue._minApi.apis
 		}
 	})
 }

@@ -1,0 +1,11 @@
+{
+	"name": "uniapp-admin",
+	"version": "1.1.0",
+	"main": "index.js",
+	"repository": "https://github.com/silianpan/uniapp-admin.git",
+	"author": "silianpan <liu.pan@silianpan.cn>",
+	"license": "MIT",
+	"dependencies": {
+		"vue-i18n": "^8.21.0"
+	}
+}

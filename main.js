@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store'
+import i18n from './i18n'
 import MinRequest from './utils//MinRequest'
-import minRequest from './api/api'
+import minApi from './api/api'
 import MinCache from './utils/MinCache'
 // import minRouter from './router/router.js'
 
@@ -18,10 +19,12 @@ Vue.use(MinCache)
 // Vue.use(MinRouter)
 
 App.mpType = 'app'
+Vue.prototype._i18n = i18n
 
 const app = new Vue({
 	store,
-	minRequest,
+	minApi,
+	i18n,
 	// minRouter,
 	...App
 })
