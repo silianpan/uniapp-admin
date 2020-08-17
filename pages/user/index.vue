@@ -80,13 +80,13 @@
 			}
 		},
 		onShow() {
-			this.setNavBarColor()
+			this.initTheme()
 		},
 		onReady() {
 			uni.setNavigationBarTitle({
 			    title: this.$t('Profile')
 			})
-			this.setNavBarColor()
+			this.initTheme()
 		},
 		onLoad() {
 			//#ifdef APP-PLUS
@@ -97,6 +97,17 @@
 			//#endif
 		},
 		methods: {
+			initTheme() {
+				this.setNavBarColor()
+				this.setDarkMode()
+			},
+			setDarkMode() {
+				this.darkMode ? uni.setTabBarStyle({
+				  backgroundColor: '#2a2b2d'
+				}) : uni.setTabBarStyle({
+					backgroundColor: '#ffffff'
+				})
+			},
 			setNavBarColor() {
 				// navBar-bg-color
 				uni.setNavigationBarColor({

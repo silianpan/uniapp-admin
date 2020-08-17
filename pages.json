@@ -11,7 +11,10 @@
 			}
 		},
 		{
-			"path": "pages/login/login"
+			"path": "pages/login/login",
+			"style": {
+				"titleNView": false
+			}
 		},
 		{
 			"path": "pages/index/project/detail-project"

@@ -70,10 +70,14 @@
 			    title: this.$t('ToDo')
 			})
 			this.setNavBarColor()
+			this.setDarkMode()
 		},
 		watch: {
 			themeBgColor() {
 				this.setNavBarColor()
+			},
+			darkMode() {
+				this.setDarkMode()
 			}
 		},
 		onLoad() {
@@ -98,6 +102,13 @@
 			}
 		},
 		methods: {
+			setDarkMode() {
+				this.darkMode ? uni.setTabBarStyle({
+				  backgroundColor: '#2a2b2d'
+				}) : uni.setTabBarStyle({
+					backgroundColor: '#ffffff'
+				})
+			},
 			setNavBarColor() {
 				// navBar-bg-color
 				uni.setNavigationBarColor({

@@ -1,5 +1,5 @@
 <template>
-	<view class="login login-bg">
+	<view class="login login-bg w-h-100" :class="darkMode?'custom-dark':'custom-light'">
 		<view class="content">
 			<!-- 头部logo -->
 			<view class="header">
@@ -16,11 +16,15 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex'
 	import wInput from '@/components/watch-login/watch-input.vue'
 	import wButton from '@/components/watch-login/watch-button.vue'
 	import md5 from '@/common/lib/md5.min.js'
 
 	export default {
+		computed: {
+			...mapGetters(['darkMode'])
+		},
 		data() {
 			return {
 				// logo图片
