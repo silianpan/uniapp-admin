@@ -201,3 +201,7 @@ page, uni-page-body, #app {
 .scoll-y {
 	height: 100%;
 }
+
+.tui-tabs-relative::before {
+	border-bottom: none!important;
+}
