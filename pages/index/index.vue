@@ -16,22 +16,20 @@
 				<input v-model="searchVal" confirm-type="search" class="input" type="text" placeholder="搜索项目/机构" @confirm="search">
 				<uni-icons :color="'#999999'" v-if="searchVal!==''" class="icon-clear" type="clear" size="22" @click="clear" />
 			</view>
-			<!-- <uni-search-bar style="width: 100%;" placeholder="搜索项目/机构" radius="100" clearButton="auto" @confirm="search" /> -->
 		</uni-nav-bar>
 
 		<uni-nav-bar :fixed="true" color="#333333" :background-color="themeBgColor" :border="false">
 			<scroll-view scroll-x scroll-with-animation :scroll-left="scrollLeft" style="z-index: 9999;">
-				<!-- <tui-tabs :tabs="tabbar" :currentTab="currentTab>1?0:currentTab" @change="swichNav" itemWidth="50%" :bgColor="bgColor" :color="'#666'" :selectedColor="'#5677fc'"></tui-tabs> -->
-				<view class="tui-tabs-view tui-tabs-relative" style="height:80rpx;padding:0 30rpx;background:#FFFFFF;top:auto">
+				<view class="tui-tabs-view tui-tabs-relative text-white" style="height:80rpx;padding:0 30rpx;top:auto" :style="{backgroundColor:themeBgColor}">
 					<view v-for="(item, index) in tabbar" :key="index" class="tui-tabs-item" style="width:50%" @tap.stop="swichNav(index)">
 						<view class="tui-tabs-title" :class="{'tui-tabs-active':currentTab==index,'tui-tabs-disabled':item.disabled}"
-						 :style="{color:currentTab==index?'#5677fc':'#666',fontSize:'28rpx',lineHeight:'28rpx',fontWeight:false && currentTab==index?'bold':'normal'}">{{item.name}}</view>
+						 :style="{color:currentTab==index?'#ffffb8':'#ffffff',fontSize:'28rpx',lineHeight:'28rpx',fontWeight:false && currentTab==index?'bold':'normal'}">{{item.name}}</view>
 					</view>
-					<view class="tui-tabs-slider" :style="{transform:'translateX('+scrollLeft+'px)',width:'68rpx',height:'6rpx',bottom:'0rpx',background:'#5677fc'}"></view>
+					<view class="tui-tabs-slider" :style="{transform:'translateX('+scrollLeft+'px)',width:'68rpx',height:'6rpx',bottom:'0rpx',background:'#ffffb8'}"></view>
 				</view>
 			</scroll-view>
 		</uni-nav-bar>
-		<swiper class="tab-content" :current="currentTab" duration="300" @change="switchTab" :style="{height:winHeight+'px'}">
+		<swiper :class="darkMode?'custom-dark':'custom-light'" class="tab-content" :current="currentTab" duration="300" @change="switchTab" :style="{height:winHeight+'px'}">
 			<swiper-item>
 				<scroll-view scroll-y class="scoll-y">
 					<audit-project ref="auditProjectRef"></audit-project>

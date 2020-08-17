@@ -182,10 +182,11 @@
 	}
 </script>
 
-<style>
+<style lang="less">
 	@import "common/css/uni.css";
 	@import "colorui/main.css";
 	@import "colorui/icon.css";
 	@import "common/css/iconfont.css";
 	@import "common/css/common.css";
+	@import "common/css/custom-dark.less";
 </style>

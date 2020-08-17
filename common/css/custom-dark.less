@@ -1,0 +1,26 @@
+@dark_bg_main: #0d1015;
+@dark_bg: #161a23;
+@dark_bg_sub: #2a2b2d;
+@dark_text_main: #d3e0f3;
+@dark_text_sub: #8c8c8c;
+@dark_text_3: #434343;
+@dark_text_4: #595959;
+
+.custom-dark {
+	background-color: @dark_bg_main!important;
+	.uni-card {
+		background-color: @dark_bg!important;
+	}
+	
+	.uni-row .flex-item-80, .uni-card__header, .uni-card__header-extra-text {
+		color: @dark_text_main!important;
+	}
+	
+	.uni-card--shadow {
+		border: 1px solid @dark_text_3!important;
+	}
+	
+	.uni-card__footer {
+		border-top: 1px solid @dark_text_3!important;
+	}
+}
