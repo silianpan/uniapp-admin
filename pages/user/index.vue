@@ -78,6 +78,11 @@
 				}
 			}
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('Profile')
+			})
+		},
 		onLoad() {
 			//#ifdef APP-PLUS
 			plus.runtime.getProperty(plus.runtime.appid, (wgtinfo) => {

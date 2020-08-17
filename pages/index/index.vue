@@ -73,6 +73,11 @@
 				searchVal: ''
 			}
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('ToDo')
+			})
+		},
 		onLoad() {
 			//  高度自适应
 			uni.getSystemInfo({

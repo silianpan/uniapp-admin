@@ -3,7 +3,6 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "待办",
 				"enablePullDownRefresh": false, // 不开启下拉刷新, 默认就是false
 				// "titleNView": false,
 				"app-plus": {
@@ -12,59 +11,31 @@
 			}
 		},
 		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登陆",
-				"titleNView": false
-			}
+			"path": "pages/login/login"
 		},
 		{
-			"path": "pages/index/project/detail-project",
-			"style": {
-				"navigationBarTitleText": "项目审批"
-			}
+			"path": "pages/index/project/detail-project"
 		},
 		{
-			"path": "pages/index/project/adjust-project",
-			"style": {
-				"navigationBarTitleText": "项目调整"
-			}
+			"path": "pages/index/project/adjust-project"
 		},
 		{
-			"path": "pages/index/user/detail-user",
-			"style": {
-				"navigationBarTitleText": "用户审批"
-			}
+			"path": "pages/index/user/detail-user"
 		},
 		{
-			"path": "pages/file/file-preview",
-			"style": {
-				"navigationBarTitleText": "附件预览"
-			}
+			"path": "pages/file/file-preview"
 		},
 		{
-			"path": "pages/project/index",
-			"style": {
-				"navigationBarTitleText": "项目"
-			}
+			"path": "pages/project/index"
 		},
 		{
-			"path": "pages/project/project-detail",
-			"style": {
-				"navigationBarTitleText": "项目详细"
-			}
+			"path": "pages/project/project-detail"
 		},
 		{
-			"path": "pages/analysis/index",
-			"style": {
-				"navigationBarTitleText": "统计"
-			}
+			"path": "pages/analysis/index"
 		},
 		{
-			"path": "pages/user/index",
-			"style": {
-				"navigationBarTitleText": "我的"
-			}
+			"path": "pages/user/index"
 		}
 	],
 	"tabBar": {

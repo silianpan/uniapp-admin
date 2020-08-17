@@ -33,6 +33,11 @@
 				winHeight: ""
 			}
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('Project')
+			})
+		},
 		onLoad() {
 			//  高度自适应
 			uni.getSystemInfo({

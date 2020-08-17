@@ -15,6 +15,9 @@
 			}
 		},
 		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('FilePreview')
+			})
 			// #ifdef APP-PLUS
 			var currentWebview = this.$mp.page.$getAppWebview() //获取当前页面的webview对象
 			setTimeout(function() {

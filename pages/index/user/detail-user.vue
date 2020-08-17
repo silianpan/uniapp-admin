@@ -221,6 +221,11 @@
 				]
 			}
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('UserApproval')
+			})
+		},
 		onLoad(options) {
 			try {
 				this.item = JSON.parse(options.data)

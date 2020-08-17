@@ -179,6 +179,11 @@
 				]
 			}
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('ProjectDetail')
+			})
+		},
 		onLoad(options) {
 			try {
 				this.item = JSON.parse(options.data)

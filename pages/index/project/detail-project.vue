@@ -187,6 +187,11 @@
 				]
 			}
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('ProjectApproval')
+			})
+		},
 		onLoad(options) {
 			try {
 				this.item = JSON.parse(options.data)

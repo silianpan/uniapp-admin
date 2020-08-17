@@ -27,6 +27,11 @@
 			ProjectTimeTable,
 			UchartsDemo
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('Statistics')
+			})
+		},
 		data() {
 			return {
 				projectNum: 199,

@@ -57,6 +57,11 @@
 		components: {
 			tuiDatetime
 		},
+		onReady() {
+			uni.setNavigationBarTitle({
+			    title: this.$t('ProjectAdjust')
+			})
+		},
 		onLoad(options) {
 			try {
 				this.projectItem = JSON.parse(options.data)
