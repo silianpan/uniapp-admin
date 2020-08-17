@@ -6,12 +6,31 @@
 		onLaunch: function() {
 			// 初始化系统
 			this.initSystem()
+			this.setTabBarText()
 			// 自动登录检测
 			this.autoLogin()
 			// 处理推送消息
 			this.handlePush()
 		},
 		methods: {
+			setTabBarText() {
+				uni.setTabBarItem({
+					index: 0,
+					text: this.$t('ToDo')
+				})
+				uni.setTabBarItem({
+					index: 1,
+					text: this.$t('Project')
+				})
+				uni.setTabBarItem({
+					index: 2,
+					text: this.$t('Statistics')
+				})
+				uni.setTabBarItem({
+					index: 3,
+					text: this.$t('Profile')
+				})
+			},
 			/**
 			 * 处理推送消息
 			 */

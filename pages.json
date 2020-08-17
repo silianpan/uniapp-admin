@@ -44,22 +44,18 @@
 		"backgroundColor": "#ffffff",
 		"list": [{
 			"pagePath": "pages/index/index",
-			"text": "待办",
 			"iconPath": "static/img/tabbar/todo.png",
 			"selectedIconPath": "static/img/tabbar/todoHL.png"
 		}, {
 			"pagePath": "pages/project/index",
-			"text": "项目",
 			"iconPath": "static/img/tabbar/project.png",
 			"selectedIconPath": "static/img/tabbar/projectHL.png"
 		}, {
 			"pagePath": "pages/analysis/index",
-			"text": "统计",
 			"iconPath": "static/img/tabbar/tongji.png",
 			"selectedIconPath": "static/img/tabbar/tongjiHL.png"
 		}, {
 			"pagePath": "pages/user/index",
-			"text": "我的",
 			"iconPath": "static/img/tabbar/user.png",
 			"selectedIconPath": "static/img/tabbar/userHL.png"
 		}]
