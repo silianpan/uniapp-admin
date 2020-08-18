@@ -7,7 +7,7 @@ export default {
 		login(state, user) {
 			state.user = user
 			// 缓存用户信息
-			Vue.prototype.$cache.set('_userInfo', JSON.stringify(user), 0)
+			Vue.prototype.$cache.set('_userInfo', user, 0)
 		},
 		logout(state) {
 			state.user = null
@@ -109,8 +109,7 @@ export default {
 			if (state.user) {
 				return state.user
 			}
-			const userInfo = Vue.prototype.$cache.get('_userInfo')
-			return userInfo ? JSON.parse(userInfo) : {}
+			return Vue.prototype.$cache.get('_userInfo')
 		}
 	}
 }
