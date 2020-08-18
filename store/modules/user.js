@@ -7,12 +7,12 @@ export default {
 		login(state, user) {
 			state.user = user
 			// 缓存用户信息
-			Vue.prototype.$cache.set('_user', user, 0)
+			Vue.prototype.$cache.set('_userInfo', JSON.stringify(user), 0)
 		},
 		logout(state) {
 			state.user = null
 			// 清理缓存用户信息
-			Vue.prototype.$cache.delete('_user')
+			Vue.prototype.$cache.delete('_userInfo')
 		}
 	},
 	actions: {
@@ -70,9 +70,7 @@ export default {
 			return new Promise((resolve, reject) => {
 				Vue.prototype.$minApi.login().then(res => {
 					if (res.ok()) {
-						let tmp = { ...params,
-							...res.data
-						}
+						let tmp = { ...params, ...res.data }
 						commit('login', tmp)
 
 						// 关于消息推送的保存
@@ -111,7 +109,8 @@ export default {
 			if (state.user) {
 				return state.user
 			}
-			return Vue.prototype.$cache.get('_user')
+			const userInfo = Vue.prototype.$cache.get('_userInfo')
+			return userInfo ? JSON.parse(userInfo) : {}
 		}
 	}
 }
