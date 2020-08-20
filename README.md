@@ -1,25 +1,28 @@
----
-title: "基于uni-app多平台管理系统模板uniapp-admin"
-author: silianpan
-date: 2019-10-26
-output: word_document
----
-
 ## 基于uni-app多平台管理系统模板uniapp-admin
 
-<center class="half">
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/865d433e88d5a5286a871adcd522c3b5.png" width="230"/>
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/1.gif" width="285"/>
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/2.gif" width="220"/>
-</center>
+## uniapp-admin 2.0.0 重磅发布！
 
-[H5在线预览](http://113.62.127.199/ua/)
+* 更加完善的开发指南
+* 主题定制：支持颜色主题和深色模式，页面更加美观
+* 国际化/多语言：应用内容和pages.json国际化，支持N种语言
+* 引入iconfont：海量字体图标支持
+* 引入rap2接口管理平台：支持在线Mock数据模拟
+* 接口请求：不同API可以单独配置baseURL
+* 调整App升级方案：无缝升级更容易
+* 消息推送，在线文档预览，跨域等多种解决方案
 
-[Android APK 下载地址](http://silianpan.cn/wp-content/uploads/2019/10/ua1.0.apk)
+### [在线文档](http://ua-doc.silianpan.cn)
+
+[h5在线地址](http://ua.silianpan.cn/)
+> 用户名：admin 密码：admin
+
+[Android Apk下载](http://silianpan.cn/wp-content/uploads/2019/10/ua.apk)
 
 [Github](https://github.com/silianpan/uniapp-admin)
 
 [Gitee](https://gitee.com/twofloor/uniapp-admin)
+
+<img src="http://silianpan.cn/wp-content/uploads/2020/08/ua.gif" alt="ua-gif"/>
 
 ### 一、前言
 
@@ -287,29 +290,18 @@ request(options = {}) {
 
 ### 八、效果
 
-<center>
+#### 开源不易，且用且珍惜
 
-#### H5
+> 提示：Android二维码使用手机浏览器扫
 
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/f41aefdd6348fe7e2b29920da6fca9b0.png" width="120" alt="h5"/>
+<img src="http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5130d93e34fca6703f465b8d173cd042.jpg" width="120" alt="h5"/>
+<!-- ![h5](http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5130d93e34fca6703f465b8d173cd042.jpg "h5") -->
+<img src="http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5e73998d5012227676299f651d760cf2.jpg" width="120" alt="android"/>
+<!-- ![android](http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5e73998d5012227676299f651d760cf2.jpg) -->
 
-#### Android APK
+#### 赞助作者
 
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/b252ebdb5654b1d585ec40287e1f4bab.png" width="120" alt="android-apk"/>
-
-</center>
-
-<br>
-
-#### <center>开源不易，且用且珍惜！</center>
-
-<br>
-<center style="font-size:20px">赞助作者</center>
-<br>
-<center class="half">
-<img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="240"/>
-
-<img src="http://silianpan.cn/wp-content/themes/yusi1.0/img/weixin.gif" width="240" />
-</center>
+<img src="http://silianpan.cn/wp-content/uploads/2019/10/b9c369443b192642f975be9020b3234e.png" width="120"/>
+<img src="http://silianpan.cn/wp-content/themes/yusi1.0/img/weixin.gif" width="120" />
 
 转载请注明：[溜爸 » 基于uni-app多平台管理系统模板uniapp-admin](http://silianpan.cn/index.php/2019/10/26/uniapp_admin/)
