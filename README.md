@@ -13,10 +13,13 @@
 
 ### [在线文档](http://ua-doc.silianpan.cn)
 
-[h5在线地址](http://ua.silianpan.cn/)
+> 提示：Android二维码使用手机浏览器扫<br>
 > 用户名：admin 密码：admin
 
-[Android Apk下载](http://silianpan.cn/wp-content/uploads/2019/10/ua.apk)
+<img src="http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5130d93e34fca6703f465b8d173cd042.jpg" width="120" alt="h5"/>
+<!-- ![h5](http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5130d93e34fca6703f465b8d173cd042.jpg "h5") -->
+<img src="http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5e73998d5012227676299f651d760cf2.jpg" width="120" alt="android"/>
+<!-- ![android](http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5e73998d5012227676299f651d760cf2.jpg) -->
 
 [Github](https://github.com/silianpan/uniapp-admin)
 
@@ -291,13 +294,6 @@ request(options = {}) {
 ### 八、效果
 
 #### 开源不易，且用且珍惜
-
-> 提示：Android二维码使用手机浏览器扫
-
-<img src="http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5130d93e34fca6703f465b8d173cd042.jpg" width="120" alt="h5"/>
-<!-- ![h5](http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5130d93e34fca6703f465b8d173cd042.jpg "h5") -->
-<img src="http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5e73998d5012227676299f651d760cf2.jpg" width="120" alt="android"/>
-<!-- ![android](http://silianpan.cn/wp-content/uploads/2020/08/wp_editor_md_5e73998d5012227676299f651d760cf2.jpg) -->
 
 #### 赞助作者
 
