@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import i18n from './i18n'
+import _ from 'lodash'
 import MinRequest from './utils//MinRequest'
 import minApi from './api/api'
 import MinCache from './utils/MinCache'
@@ -20,6 +21,7 @@ Vue.use(MinCache)
 
 App.mpType = 'app'
 Vue.prototype._i18n = i18n
+Vue.prototype.$_ = _
 
 const app = new Vue({
 	store,

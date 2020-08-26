@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
+
 vue-i18n@^8.21.0:
   version "8.21.0"
   resolved "https://registry.npm.taobao.org/vue-i18n/download/vue-i18n-8.21.0.tgz#526450525fdbb9c877685b5ba6cb9573b73d3940"

@@ -7,7 +7,7 @@ const fileAddr = 'http://localhost:8082/fileUpload/'
 /**
  * api前缀
  */
-const apiPrefix = '/api'
+const apiPrefix = '/apiUA'
 /**
  * 针对不同平台的baseUrl
  */

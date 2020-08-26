@@ -172,12 +172,12 @@
             "port" : 9090,
             "disableHostCheck" : true,
             "proxy" : {
-                "/api" : {
+                "/apiUA" : {
                     "target" : "http://rap2.taobao.org:38080/app/mock/263960",
                     "changeOrigin" : true,
                     "secure" : false,
                     "pathRewrite" : {
-                        "^/api" : ""
+                        "^/apiUA" : ""
                     }
                 }
             }

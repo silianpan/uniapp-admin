@@ -6,6 +6,7 @@
 	"author": "silianpan <liu.pan@silianpan.cn>",
 	"license": "MIT",
 	"dependencies": {
+		"lodash": "^4.17.20",
 		"vue-i18n": "^8.21.0"
 	}
 }
