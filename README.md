@@ -12,7 +12,7 @@ Muti-platform management system for uniapp, H5, Android, IOS, Min Program.
 
 基于uni-app管理系统模板，支持H5、Android、IOS和小程序
 
-[![doc][doc-image]][doc-url] [![uni-app-deps][uni-app-image]][uni-app-url] [![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][github-url] [![GitHub license][license-image]][github-url]
+[![doc][doc-image]][doc-url] [![gitee][gitee-image]][gitee-url] [![uni-app-deps][uni-app-image]][uni-app-url] [![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][github-url] [![GitHub license][license-image]][github-url]
 
 [uni-app-image]: https://img.shields.io/badge/uni--app-latest-%2342b983
 [uni-app-url]: https://uniapp.dcloud.io/
@@ -23,6 +23,8 @@ Muti-platform management system for uniapp, H5, Android, IOS, Min Program.
 [license-image]: https://img.shields.io/github/license/silianpan/uniapp-admin
 [doc-image]: https://img.shields.io/badge/document-latest-blue
 [doc-url]: http://silianpan.cn/ua-doc/
+[gitee-image]: https://gitee.com/twofloor/uniapp-admin/badge/star.svg?theme=dark
+[gitee-url]: https://gitee.com/twofloor/uniapp-admin/stargazers
 
 </div>
 
