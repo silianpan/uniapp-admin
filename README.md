@@ -8,7 +8,9 @@
 
 <div align="center">
 
-Muti-platform management system for uniapp, H5, Android, IOS, Min Program. 基于uni-app管理系统模板，支持H5、Android、IOS和小程序
+Muti-platform management system for uniapp, H5, Android, IOS, Min Program.
+
+基于uni-app管理系统模板，支持H5、Android、IOS和小程序
 
 [![doc][doc-image]][doc-url] [![uni-app-deps][uni-app-image]][uni-app-url] [![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][vue-url] [![GitHub license][license-image]][github-url]
 
