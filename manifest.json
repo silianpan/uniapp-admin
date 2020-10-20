@@ -17,7 +17,8 @@
         },
         /* 模块配置 */
         "modules" : {
-            "Push" : {}
+            "Push" : {},
+            "Webview-x5" : {}
         },
         "compatible" : {
             "ignoreVersion" : true
@@ -173,7 +174,7 @@
             "disableHostCheck" : true,
             "proxy" : {
                 "/apiUA" : {
-                    "target" : "http://rap2.taobao.org:38080/app/mock/263960",
+                    "target" : "http://113.62.127.199:38080/app/mock/16",
                     "changeOrigin" : true,
                     "secure" : false,
                     "pathRewrite" : {

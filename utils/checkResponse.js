@@ -141,6 +141,9 @@ export const checkLogin = (response) => {
  * @returns
  */
 export const checkResult = (result) => {
+	if (!result.isOk) {
+		showErrorMsg(result.errMsg)
+	}
 	let { code } = result
 	result.ok = function() {
 		return false

@@ -1,7 +1,7 @@
 /**
  * ip地址或域名
  */
-const ipAddress = 'http://rap2.taobao.org:38080/app/mock/263960'
+const ipAddress = 'http://113.62.127.199:38080/app/mock/16'
 // 文件访问地址
 const fileAddr = 'http://localhost:8082/fileUpload/'
 /**
