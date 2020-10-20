@@ -1,4 +1,32 @@
-## 基于uni-app多平台管理系统模板uniapp-admin
+<p align="center">
+  <a href="http://silianpan.cn/ua-doc/">
+    <img width="200" src="http://silianpan.cn/ua-doc/logo.png">
+  </a>
+</p>
+
+<h1 align="center">uniapp-admin</h1>
+
+<div align="center">
+
+Muti-platform management system for uniapp, H5, Android, IOS, Min Program.
+
+基于uni-app管理系统模板，支持H5、Android、IOS和小程序
+
+[![doc][doc-image]][doc-url] [![gitee][gitee-image]][gitee-url] [![uni-app-deps][uni-app-image]][uni-app-url] [![GitHub stars][github-starts-image]][github-url] [![GitHub commit activity][github-commit-activity-url]][github-url] [![GitHub top language][github-top-language-image]][github-url] [![GitHub license][license-image]][github-url]
+
+[uni-app-image]: https://img.shields.io/badge/uni--app-latest-%2342b983
+[uni-app-url]: https://uniapp.dcloud.io/
+[github-starts-image]: https://img.shields.io/github/stars/silianpan/uniapp-admin?style=social
+[github-url]: https://github.com/silianpan/uniapp-admin
+[github-commit-activity-url]: https://img.shields.io/github/commit-activity/m/silianpan/uniapp-admin
+[github-top-language-image]: https://img.shields.io/github/languages/top/silianpan/uniapp-admin?color=%234fc08d
+[license-image]: https://img.shields.io/github/license/silianpan/uniapp-admin
+[doc-image]: https://img.shields.io/badge/document-latest-blue
+[doc-url]: http://silianpan.cn/ua-doc/
+[gitee-image]: https://gitee.com/twofloor/uniapp-admin/badge/star.svg?theme=dark
+[gitee-url]: https://gitee.com/twofloor/uniapp-admin/stargazers
+
+</div>
 
 ## uniapp-admin 2.0.0 重磅发布！
 
