@@ -3,10 +3,11 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"enablePullDownRefresh": false, // 不开启下拉刷新, 默认就是false
-				// "titleNView": false,
 				"app-plus": {
-					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+					"bounce": "none" // 可选: 是否禁止iOS回弹和Android触顶触底的弧形阴影, 默认允许 (可配在 'globalStyle')
+				},
+				"mp-alipay": {
+					"allowsBounceVertical": "NO" // 可选: 取消支付宝和钉钉小程序的iOS回弹 (可配在 'globalStyle')
 				}
 			}
 		},

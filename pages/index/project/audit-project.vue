@@ -1,12 +1,12 @@
 <!-- 项目审批 -->
 <template>
 	<view style="margin-bottom: 100rpx">
-		<mescroll-uni :down="downOption" @emptyclick="downCallback" @down="downCallback" :up="upOption" @up="upCallback"
-		 :fixed="false">
+		<mescroll-body ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback">
 			<view class="mycard">
 				<view v-for="item in cardList" :key="item.id" class="card-item">
-					<uni-card is-full :title="item.projectType" is-shadow note="true" :extra="item.createTime" :thumbnail="`/static/img/project/${formatProjectType(item.projectType)}`"
-					 @tapHeader="clickCard(item)">
+					<uni-card is-full :title="item.projectType" is-shadow note="true" :extra="item.createTime"
+						:thumbnail="`/static/img/project/${formatProjectType(item.projectType)}`"
+						@tapHeader="clickCard(item)">
 						<view class="audit-card-content">
 							<view class="uni-flex uni-row" @tap="clickCard(item)">
 								<view class="flex-item-20">项目名称</view>
@@ -31,15 +31,16 @@
 							<view class="uni-flex uni-row" @tap="clickCard(item)">
 								<view class="flex-item-20">审核状态</view>
 								<view class="flex-item-80">
-									<uni-tag size="small" :text="formatAuditStatus(item.auditStatus).text" :type="formatAuditStatus(item.auditStatus).color"
-									 :circle="true"></uni-tag>
+									<uni-tag size="small" :text="formatAuditStatus(item.auditStatus).text"
+										:type="formatAuditStatus(item.auditStatus).color" :circle="true"></uni-tag>
 								</view>
 							</view>
 							<view class="uni-flex uni-row">
 								<view class="flex-item-20">附件</view>
 								<view class="flex-item-80">
 									<view v-for="atta in item.attachment" :key="atta.url" @tap="filePreview(atta)">
-										<uni-icons color="#007aff" type="paperclip" size="22"></uni-icons><text>{{atta.name}}</text>
+										<uni-icons color="#007aff" type="paperclip" size="22"></uni-icons>
+										<text>{{atta.name}}</text>
 									</view>
 								</view>
 							</view>
@@ -47,34 +48,39 @@
 
 						<template v-slot:footer>
 							<view class="footer-box">
-								<view class="iconfont icontongguo my-iconfont text-green" @tap="passClick(item)">通过</view>
-								<view class="iconfont iconweibiaoti522 my-iconfont text-red" @tap="unPassClick(item)">拒绝</view>
+								<view class="iconfont icontongguo my-iconfont text-green" @tap="passClick(item)">通过
+								</view>
+								<view class="iconfont iconweibiaoti522 my-iconfont text-red" @tap="unPassClick(item)">拒绝
+								</view>
 								<view class="my-iconfont text-blue" @tap="adjustClick(item)">调整</view>
 							</view>
 						</template>
 					</uni-card>
 				</view>
 			</view>
-		</mescroll-uni>
-		<audit-idea ref="popupAuditIdeaRef" :isPass="isPass" :isPaddingBottom="true" @updateQuery="updateQuery"></audit-idea>
+		</mescroll-body>
+		<audit-idea ref="popupAuditIdeaRef" :isPass="isPass" :isPaddingBottom="true" @updateQuery="updateQuery">
+		</audit-idea>
 	</view>
 </template>
 
 <script>
-	import MescrollUni from "@/components/mescroll-uni/mescroll-uni.vue"
+	import MescrollMixin from '@/components/mescroll-uni/mescroll-mixins.js'
 	import uniCard from "@/components/uni-card/uni-card"
 	import uniTag from '@/components/uni-tag/uni-tag.vue'
 	import uniIcons from '@/components/uni-icons/uni-icons.vue'
 	import auditIdea from '@/pages/index/audit-idea.vue'
-	import { mapGetters } from 'vuex'
+	import {
+		mapGetters
+	} from 'vuex'
 	import {
 		filePreview,
 		formatAuditStatus,
 		formatProjectType
 	} from '@/utils/index.js'
 	export default {
+		mixins: [MescrollMixin], // 使用mixin (在main.js注册全局组件)
 		components: {
-			MescrollUni,
 			uniCard,
 			uniTag,
 			uniIcons,
@@ -83,31 +89,8 @@
 		computed: mapGetters(['user']),
 		data() {
 			return {
-				mescroll: null,
 				isPass: false,
 				selectedProject: {},
-				// 下拉刷新的常用配置
-				downOption: {
-					use: true, // 是否启用下拉刷新; 默认true
-					auto: true, // 是否在初始化完毕之后自动执行下拉刷新的回调; 默认true
-				},
-				// 上拉加载的常用配置
-				upOption: {
-					use: true, // 是否启用上拉加载; 默认true
-					auto: true, // 是否在初始化完毕之后自动执行上拉加载的回调; 默认true
-					page: {
-						num: 0, // 当前页码,默认0,回调之前会加1,即callback(page)会从1开始
-						size: 10 // 每页数据的数量,默认10
-					},
-					noMoreSize: 5, // 配置列表的总数量要大于等于5条才显示'-- END --'的提示
-					empty: {
-						tip: '暂无相关数据'
-					},
-					toTop: {
-						src: '/static/img/backtop.png'
-					},
-					textNoMore: '没有更多数据了'
-				},
 				// 列表数据
 				cardList: []
 			}
@@ -116,49 +99,22 @@
 			filePreview,
 			formatAuditStatus,
 			formatProjectType,
-			// mescroll组件初始化的回调,可获取到mescroll对象
-			mescrollInit(mescroll) {
-				// 如果this.mescroll对象没有使用到,则mescrollInit可以不用配置
-				this.mescroll = mescroll
-			},
-			/*下拉刷新的回调, 有三种处理方式: */
-			downCallback(mescroll) {
-				// 第2种: 下拉刷新和上拉加载调同样的接口, 那以上请求可删, 直接用mescroll.resetUpScroll()代替
-				mescroll.resetUpScroll() // 重置列表为第一页 (自动执行 page.num=1, 再触发upCallback方法 )
-			},
-			/*上拉加载的回调*/
-			upCallback(mescroll) {
+			/* 上拉加载的回调: 其中page.num:当前页 从1开始, page.size:每页数据条数,默认10 */
+			upCallback(page) {
+				console.log('123', page)
 				if (!this.user) {
-					mescroll.endErr()
+					this.mescroll.endErr()
 					return
 				}
-
-				// 此时mescroll会携带page的参数:
-				let pageNum = mescroll.num // 页码, 默认从1开始
-				let pageSize = mescroll.size // 页长, 默认每页10条
-
-				this.$minApi.listAuditProject({}, pageNum, pageSize).then(res => {
-					// 接口返回的当前页数据列表 (数组)
-					let curPageData = res.data
-					// 接口返回的总页数 (比如列表有26个数据,每页10条,共3页; 则totalPage值为3)
-					let totalPage = res.data.length
-					// 接口返回的总数据量(比如列表有26个数据,每页10条,共3页; 则totalSize值为26)
-					let totalSize = res.data.length
-					// 接口返回的是否有下一页 (true/false)
-					// let hasNext = res.hasNextPage
-
-					if (mescroll.num == 1) this.cardList = [] //如果是第一页需手动置空列表
-					this.cardList = this.cardList.concat(curPageData) //追加新数据
-
-					// 成功隐藏下拉加载状态
-					// 方法一(推荐): 后台接口有返回列表的总页数 totalPage
-					mescroll.endByPage(curPageData.length, totalPage)
-					this.$nextTick(() => {
-						mescroll.endSuccess(curPageData.length)
-					})
+				this.$minApi.listAuditProject({}, page.num, page.size).then(res => {
+					const curPageData = res.data // 当前页面获取数据
+					const totalSize = 10 // 后台接口有返回列表的总数据量totalSize
+					this.mescroll.endBySize(curPageData.length, totalSize)
+					// 设置列表数据
+					if (page.num == 1) this.cardList = [] // 如果是第一页需手动置空列表
+					this.cardList = this.cardList.concat(curPageData) // 追加新数据
 				}).catch(() => {
-					// 失败隐藏下拉加载状态
-					mescroll.endErr()
+					this.mescroll.endErr()
 				})
 			},
 			clickCard(item) {
@@ -192,10 +148,6 @@
 				uni.hideLoading()
 			},
 			updateQuery() {
-				// 无效
-				// if (this.mescroll !== null) {
-				// 	this.downCallback(this.mescroll)
-				// }
 				this.queryByName()
 			}
 		}

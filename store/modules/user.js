@@ -33,11 +33,6 @@ export default {
 					// 	title: '已自动登录！',
 					// 	icon: 'success'
 					// })
-					setTimeout(() => {
-						uni.reLaunch({
-							url: '/pages/index/index'
-						})
-					}, 1000)
 				}).catch(() => {
 					uni.hideLoading()
 					uni.showToast({
