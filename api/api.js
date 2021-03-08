@@ -36,6 +36,18 @@ export default {
 		// 用户审批列表
 		listAuditUser() {
 			return minRequest.get('/get/audit/user/list')
+		},
+		// 永中云预览-上传文件
+		yzPreviewUploadFile({ file, appId, sign }) {
+			return minRequest.post('/apiYzPreviewDmc/api/file/upload', { file, appId, sign }, {
+				baseURL: globalConfig.yzPreviewDmcUrl
+			})
+		},
+		// 永中云预览-在线预览
+		yzPreviewUploadFile({ fileVersionId, appId, sign }) {
+			return minRequest.post('/apiYzPreviewEic/api/view/file', { fileVersionId, appId, sign }, {
+				baseURL: globalConfig.yzPreviewEicUrl
+			})
 		}
 	}
 }

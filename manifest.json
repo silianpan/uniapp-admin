@@ -180,7 +180,23 @@
                     "pathRewrite" : {
                         "^/apiUA" : ""
                     }
-                }
+                },
+				"/apiYzPreviewDmc" : {
+				    "target" : "http://dmc.yozocloud.cn",
+				    "changeOrigin" : true,
+				    "secure" : false,
+				    "pathRewrite" : {
+				        "^/apiYzPreviewDmc" : ""
+				    }
+				},
+				"/apiYzPreviewEic" : {
+				    "target" : "http://eic.yozocloud.cn",
+				    "changeOrigin" : true,
+				    "secure" : false,
+				    "pathRewrite" : {
+				        "^/apiYzPreviewEic" : ""
+				    }
+				}
             }
         },
         "title" : "uniapp-admin",
