@@ -101,7 +101,6 @@
 			formatProjectType,
 			/* 上拉加载的回调: 其中page.num:当前页 从1开始, page.size:每页数据条数,默认10 */
 			upCallback(page) {
-				console.log('123', page)
 				if (!this.user) {
 					this.mescroll.endErr()
 					return
