@@ -142,7 +142,7 @@ export const checkLogin = (response) => {
  */
 export const checkResult = (result) => {
 	if (!result.isOk) {
-		showErrorMsg(result.errMsg)
+		showErrorMsg(result.errMsg || '请求失败')
 	}
 	let { code } = result
 	result.ok = function() {
@@ -153,7 +153,7 @@ export const checkResult = (result) => {
 			return true
 		}
 	} else {
-		showErrorMsg(result.msg || HttpErrorCode[code])
+		showErrorMsg(result.msg || HttpErrorCode[code] || '请求失败')
 	}
 	return result
 }
