@@ -141,9 +141,10 @@ export const checkLogin = (response) => {
  * @returns
  */
 export const checkResult = (result) => {
-	if (!result.isOk) {
-		showErrorMsg(result.errMsg || '请求失败')
-	}
+	// 对后台返回结果检测
+	// if (!result.isOk) {
+	// 	showErrorMsg(result.errMsg || '请求失败')
+	// }
 	let { code } = result
 	result.ok = function() {
 		return false
