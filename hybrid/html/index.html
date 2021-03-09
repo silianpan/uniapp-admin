@@ -3,11 +3,11 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>H5附件上传</title>
+		<title>H5文档上传</title>
 	</head>
 
 	<body>
-		<h1>H5附件上传</h1>
+		<h1>H5文档上传</h1>
 		<input type="file" id="myfile" name="file" style="display:none" onchange="changeAgentContent()" />
 		<input type="text" value="" disabled id="myfileAgent" />
 		<input type="button" onclick="document.getElementById('myfile').click()" value="浏览..." />
@@ -27,14 +27,15 @@
 			uni.getEnv(function(res) {
 				console.log('当前环境：' + JSON.stringify(res));
 			});
-			var appId = 'appId'
-			var appKey = 'appKey'
+			var appId = 'yozoqCDmN6GZ2936'
+			var appKey = 'af0f63cf10f8e1918001d685f5c4'
 			function changeAgentContent(){
 			    document.getElementById("myfileAgent").value = document.getElementById("myfile").value;
 			}
 			var uploader = document.getElementById('uploader');
 			// 发送文件数据
 			function sendMessage(data) {
+				data.sign = generateSign(appKey, {"appId": [appId], "fileVersionId": [data.fileVersionId]});
 				uni.postMessage({
 					data: {
 						action: data
@@ -46,7 +47,7 @@
 				// })
 				// 关闭当前页面，跳转到应用内的某个页面
 				uni.redirectTo({
-					url: './h5Upload?fileData=' + data,
+					url: '/pages/yzcloud/yz-preview?fileData=' + encodeURIComponent(JSON.stringify(data)),
 				})
 				// 返回上一级页面,通过@message接收数据,并放到store中,以便提交时获取文件数据
 				// uni.navigateBack({
@@ -55,6 +56,15 @@
 			}
 			uploader.addEventListener("click", function(e) {
 				var sign = generateSign(appKey, {"appId": [appId]});
+				
+				// 以下是XMLHttpRequest上传文件的简单post请求
+				// var form = new FormData();
+				// form.append("file", document.getElementById('myfile').files[0]);
+				// var xhrForm = new XMLHttpRequest();
+				// xhrForm.open("POST", '/apiYzPreviewDmc/api/file/upload?appId=' + appId + '&sign=' + sign, true);
+				// xhrForm.send(form);
+				
+				// 以下是封装XMLHttpRequest，包含成功或失败回调函数
 				H5Uploader.upload({
 					// 上传url
 					action: '/apiYzPreviewDmc/api/file/upload?appId=' + appId + '&sign=' + sign,
@@ -82,11 +92,15 @@
 						document.body.appendChild(p);
 					},
 					success: function(data) {
-						alert(data);
-						if (data && data == 200) {
-							document.getElementById('loading').innerHTML = "The file upload successfully!";
-							alert("The file upload successfully.");
-						}
+						// alert(data);
+						// if (data && data == 200) {
+						// 	document.getElementById('loading').innerHTML = "The file upload successfully!";
+						// 	alert("The file upload successfully.");
+						// }
+						
+						// 上传完成，发送结果到应用中
+						var tmpJson = JSON.parse(data)
+						sendMessage(tmpJson.data);
 					},
 					fail: function(data) {
 						alert("The file upload failed.");

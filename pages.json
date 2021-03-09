@@ -48,10 +48,10 @@
 			"path": "pages/yzcloud/index"
 		},
 		{
-			"path": "pages/file/file-upload",
-			"style": {
-				"navigationBarTitleText": "永中云服务"
-			}
+			"path": "pages/file/file-upload"
+		},
+		{
+			"path": "pages/yzcloud/yz-preview"
 		}
 	],
 	"tabBar": {

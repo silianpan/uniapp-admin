@@ -52,8 +52,8 @@
 
 				var xhr = createXhr();
 				xhr.open("POST", literals.action, true);
-				xhr.setRequestHeader("Content-Type", "multipart/form-data");
-				xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+				// xhr.setRequestHeader("Content-Type", "multipart/form-data");
+				// xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 				xhr.onreadystatechange = function() {
 					if (xhr.readyState == 4) {
 						var body = xhr.responseText;

@@ -64,7 +64,7 @@ export default {
 		},
 		login({ commit }, params) {
 			return new Promise((resolve, reject) => {
-				Vue.prototype.$minApi.login().then(res => {
+				Vue.prototype.$minApi.login(params).then(res => {
 					if (res.ok()) {
 						let tmp = { ...params, ...res.data }
 						commit('login', tmp)

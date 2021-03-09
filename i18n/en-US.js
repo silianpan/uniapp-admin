@@ -5,6 +5,8 @@ export default {
 	'FilePreview': 'File Previewing',
 	'Project': 'Project',
 	'YzCloud': 'Yozo Cloud',
+	'YzDocPreview': 'Yozo Document Preview',
+	'DocUpload': 'Document Upload',
 	'ProjectDetail': 'Project in detail',
 	'Statistics': 'Statistics',
 	'Profile': 'Profile',

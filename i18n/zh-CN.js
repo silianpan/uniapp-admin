@@ -5,6 +5,8 @@ export default {
 	'FilePreview': '文件预览',
 	'Project': '项目',
 	'YzCloud': '永中云服务',
+	'YzDocPreview': '永中云预览',
+	'DocUpload': '文档上传',
 	'ProjectDetail': '项目详细',
 	'Statistics': '统计',
 	'Profile': '我的',
