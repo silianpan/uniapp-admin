@@ -8,7 +8,7 @@
 
 	<body>
 		<h1>H5附件上传</h1>
-		<input type="file" id="myfile" name="myfile" style="display:none" onchange="changeAgentContent()" />
+		<input type="file" id="myfile" name="file" style="display:none" onchange="changeAgentContent()" />
 		<input type="text" value="" disabled id="myfileAgent" />
 		<input type="button" onclick="document.getElementById('myfile').click()" value="浏览..." />
 		<button id="uploader">上传</button>
@@ -58,7 +58,7 @@
 				H5Uploader.upload({
 					// 上传url
 					action: '/apiYzPreviewDmc/api/file/upload?appId=' + appId + '&sign=' + sign,
-					id: 'myFile',
+					id: 'myfile',
 					size: {
 						max: 50000, // 5000kb 
 						valide: function(e) {
