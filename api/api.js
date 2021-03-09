@@ -44,7 +44,7 @@ export default {
 			})
 		},
 		// 永中云预览-在线预览
-		yzPreviewUploadFile({ fileVersionId, appId, sign }) {
+		yzPreviewFile({ fileVersionId, appId, sign }) {
 			return minRequest.post('/apiYzPreviewEic/api/view/file', { fileVersionId, appId, sign }, {
 				baseURL: globalConfig.yzPreviewEicUrl
 			})

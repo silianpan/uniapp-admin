@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<title>H5附件上传</title>
+	</head>
+
+	<body>
+		<h1>H5附件上传</h1>
+		<input type="file" id="myfile" name="myfile" style="display:none" onchange="changeAgentContent()" />
+		<input type="text" value="" disabled id="myfileAgent" />
+		<input type="button" onclick="document.getElementById('myfile').click()" value="浏览..." />
+		<!-- <input type="file" id="myfile" value="" name="myfile" multiple="multiple" /> -->
+		<button id="uploader">上传</button>
+		<!-- uni 的 SDK -->
+		<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.1.js"></script>
+		<script type="text/javascript" src="js/h5uploader.js"></script>
+		<script type="text/javascript">
+			// 当前环境
+			uni.getEnv(function(res) {
+				console.log('当前环境：' + JSON.stringify(res));
+			});
+			function changeAgentContent(){
+			    document.getElementById("myfileAgent").value = document.getElementById("myfile").value;
+			}
+			var uploader = document.getElementById('uploader');
+			// 发送文件数据
+			function sendMessage(data) {
+				uni.postMessage({
+					data: {
+						action: data
+					}
+				});
+				// 关闭所有页面，打开到应用内的某个页面,url传递文件数据,表单页面通过reload接收数据,并在提交时传递
+				// uni.reLaunch({
+				// 	url: './h5Upload?fileData=' + data,
+				// })
+				// 关闭当前页面，跳转到应用内的某个页面
+				uni.redirectTo({
+					url: './h5Upload?fileData=' + data,
+				})
+				// 返回上一级页面,通过@message接收数据,并放到store中,以便提交时获取文件数据
+				// uni.navigateBack({
+				//     delta: 1
+				// });
+			}
+			uploader.addEventListener("click", function(e) {
+				// 上传完成,发送文件数据到应用中
+				sendMessage('fileData')
+				H5Uploader.upload({
+					// 上传url
+					action: 'upload',
+					id: 'myfile',
+					size: {
+						max: 50000, // 5000kb 
+						valide: function(e) {
+							if (e) {
+								alert("The size of " + e.name + " is exceed max value!");
+							}
+						}
+					}, // MB
+					type: {
+						name: 'csv;png;jpg;jpeg',
+						valide: function(e) {
+							if (e) {
+								alert("The type of " + e.name + " is not supported!");
+							}
+						}
+					},
+					progress: function() {
+						var p = document.createElement('p');
+						p.innerHTML = "uploading";
+						p.id = "loading";
+						document.body.appendChild(p);
+					},
+					success: function(data) {
+						alert(data);
+						if (data && data == 200) {
+							document.getElementById('loading').innerHTML = "The file upload successfully!";
+							alert("The file upload successfully.");
+						}
+					},
+					fail: function(data) {
+					}
+				});
+			}, false);
+		</script>
+	</body>
+
+</html>

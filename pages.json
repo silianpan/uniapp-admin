@@ -43,6 +43,15 @@
 		},
 		{
 			"path": "pages/user/setting"
+		},
+		{
+			"path": "pages/yzcloud/index"
+		},
+		{
+			"path": "pages/file/file-upload",
+			"style": {
+				"navigationBarTitleText": "永中云服务"
+			}
 		}
 	],
 	"tabBar": {
@@ -53,6 +62,10 @@
 			"pagePath": "pages/index/index",
 			"iconPath": "static/img/tabbar/todo.png",
 			"selectedIconPath": "static/img/tabbar/todoHL.png"
+		}, {
+			"pagePath": "pages/yzcloud/index",
+			"iconPath": "static/img/tabbar/yz.png",
+			"selectedIconPath": "static/img/tabbar/yzHL.png"
 		}, {
 			"pagePath": "pages/project/index",
 			"iconPath": "static/img/tabbar/project.png",
