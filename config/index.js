@@ -9,8 +9,8 @@ const fileAddr = 'http://localhost:8082/fileUpload/'
 // 文档管理接口url
 const yzPreviewDmc = 'http://dmc.yozocloud.cn'
 const yzPreviewEic = 'http://eic.yozocloud.cn'
-const yzPreviewAPPID = 'yozoqCDmN6GZ2936'
-const yzPreviewAPPKEY = 'af0f63cf10f8e1918001d685f5c4'
+const yzPreviewAPPID = 'appId'
+const yzPreviewAPPKEY = 'appKey'
 /**
  * api前缀
  */
