@@ -11,16 +11,24 @@
 		<input type="file" id="myfile" name="myfile" style="display:none" onchange="changeAgentContent()" />
 		<input type="text" value="" disabled id="myfileAgent" />
 		<input type="button" onclick="document.getElementById('myfile').click()" value="浏览..." />
-		<!-- <input type="file" id="myfile" value="" name="myfile" multiple="multiple" /> -->
 		<button id="uploader">上传</button>
+		
+		<!-- <form enctype="multipart/form-data" method="post" id="myForm" name="file">
+			<input type="file" id="myFile" name="file">
+			<button id="uploader">上传</button>
+		</form> -->
 		<!-- uni 的 SDK -->
 		<script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.1.js"></script>
 		<script type="text/javascript" src="js/h5uploader.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+		<script type="text/javascript" src="js/signclient.js"></script>
 		<script type="text/javascript">
 			// 当前环境
 			uni.getEnv(function(res) {
 				console.log('当前环境：' + JSON.stringify(res));
 			});
+			var appId = 'appId'
+			var appKey = 'appKey'
 			function changeAgentContent(){
 			    document.getElementById("myfileAgent").value = document.getElementById("myfile").value;
 			}
@@ -46,12 +54,11 @@
 				// });
 			}
 			uploader.addEventListener("click", function(e) {
-				// 上传完成,发送文件数据到应用中
-				sendMessage('fileData')
+				var sign = generateSign(appKey, {"appId": [appId]});
 				H5Uploader.upload({
 					// 上传url
-					action: 'upload',
-					id: 'myfile',
+					action: '/apiYzPreviewDmc/api/file/upload?appId=' + appId + '&sign=' + sign,
+					id: 'myFile',
 					size: {
 						max: 50000, // 5000kb 
 						valide: function(e) {
@@ -61,7 +68,7 @@
 						}
 					}, // MB
 					type: {
-						name: 'csv;png;jpg;jpeg',
+						name: 'csv;doc;docx;xls;xltx;ppt;pptx;jpeg;jpg;png;gif;bmp;tif;rar;zip;uof;uot;uos;uop;pdf;ofd;',
 						valide: function(e) {
 							if (e) {
 								alert("The type of " + e.name + " is not supported!");
@@ -82,6 +89,7 @@
 						}
 					},
 					fail: function(data) {
+						alert("The file upload failed.");
 					}
 				});
 			}, false);

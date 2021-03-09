@@ -18,14 +18,18 @@
 				})
 				uni.setTabBarItem({
 					index: 1,
-					text: this.$t('Project')
+					text: this.$t('YzCloud')
 				})
 				uni.setTabBarItem({
 					index: 2,
-					text: this.$t('Statistics')
+					text: this.$t('Project')
 				})
 				uni.setTabBarItem({
 					index: 3,
+					text: this.$t('Statistics')
+				})
+				uni.setTabBarItem({
+					index: 4,
 					text: this.$t('Profile')
 				})
 			},

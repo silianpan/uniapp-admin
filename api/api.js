@@ -38,14 +38,26 @@ export default {
 			return minRequest.get('/get/audit/user/list')
 		},
 		// 永中云预览-上传文件
-		yzPreviewUploadFile({ file, appId, sign }) {
-			return minRequest.post('/apiYzPreviewDmc/api/file/upload', { file, appId, sign }, {
+		yzPreviewUploadFile({
+			file
+		}) {
+			return minRequest.post('/apiYzPreviewDmc/api/file/upload', {
+				file,
+				appId: globalConfig.yzPreviewAPPID,
+				sign: globalConfig.yzPreviewAPPKEY
+			}, {
 				baseURL: globalConfig.yzPreviewDmcUrl
 			})
 		},
 		// 永中云预览-在线预览
-		yzPreviewFile({ fileVersionId, appId, sign }) {
-			return minRequest.post('/apiYzPreviewEic/api/view/file', { fileVersionId, appId, sign }, {
+		yzPreviewFile({
+			fileVersionId
+		}) {
+			return minRequest.post('/apiYzPreviewEic/api/view/file', {
+				fileVersionId,
+				appId: globalConfig.yzPreviewAPPID,
+				sign: globalConfig.yzPreviewAPPKEY
+			}, {
 				baseURL: globalConfig.yzPreviewEicUrl
 			})
 		}

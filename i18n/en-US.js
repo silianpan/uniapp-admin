@@ -4,6 +4,7 @@ export default {
 	'UserApproval': 'User Approval',
 	'FilePreview': 'File Previewing',
 	'Project': 'Project',
+	'YzCloud': 'Yozo Cloud',
 	'ProjectDetail': 'Project in detail',
 	'Statistics': 'Statistics',
 	'Profile': 'Profile',

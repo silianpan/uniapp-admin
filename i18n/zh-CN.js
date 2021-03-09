@@ -4,6 +4,7 @@ export default {
 	'UserApproval': '用户审批',
 	'FilePreview': '文件预览',
 	'Project': '项目',
+	'YzCloud': '永中云服务',
 	'ProjectDetail': '项目详细',
 	'Statistics': '统计',
 	'Profile': '我的',

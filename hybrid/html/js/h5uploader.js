@@ -69,10 +69,12 @@
 						}
 					}
 				};
-				var data = new FormData();
+				
 				if (!literals.id) {
 					throw new Error('The upload id option is undefined.');
 				}
+				// var myForm = document.getElementById(literals.formId);
+				var data = new FormData();
 				var file = document.getElementById(literals.id);
 				if (!file) {
 					throw new Error('The upload file element is undefined::id:' + literals.id);
@@ -101,11 +103,11 @@
 				if (literals.progress) { // Progress
 					literals.progress();
 				}
-
+				
 				for (var i = 0; i < file.files.length; i++) {
 					data.append(name, file.files[i]);
 				}
-
+				
 				try {
 					xhr.send(data);
 				} catch (e) {
