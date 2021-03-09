@@ -23,16 +23,25 @@
 		<script type="text/javascript" src="https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js"></script>
 		<script type="text/javascript" src="js/signclient.js"></script>
 		<script type="text/javascript">
+			function getQueryString(key) {
+				var reg = new RegExp('(^|&)' + key + '=([^&]*)(&|$)')
+				var r = window.location.search.substr(1).match(reg)
+				if (r != null) return unescape(r[2])
+				return null
+			}
 			// 当前环境
 			uni.getEnv(function(res) {
 				console.log('当前环境：' + JSON.stringify(res));
 			});
-			var appId = 'appId'
-			var appKey = 'appKey'
 			function changeAgentContent(){
 			    document.getElementById("myfileAgent").value = document.getElementById("myfile").value;
 			}
-			var uploader = document.getElementById('uploader');
+			
+			var info = getQueryString('info');
+			info = JSON.parse(decodeURIComponent(info));
+			var appId = info.appId;
+			var appKey = info.appKey;
+			var dmc = info.dmc;
 			// 发送文件数据
 			function sendMessage(data) {
 				data.sign = generateSign(appKey, {"appId": [appId], "fileVersionId": [data.fileVersionId]});
@@ -54,6 +63,7 @@
 				//     delta: 1
 				// });
 			}
+			var uploader = document.getElementById('uploader');
 			uploader.addEventListener("click", function(e) {
 				var sign = generateSign(appKey, {"appId": [appId]});
 				
@@ -67,7 +77,7 @@
 				// 以下是封装XMLHttpRequest，包含成功或失败回调函数
 				H5Uploader.upload({
 					// 上传url
-					action: '/apiYzPreviewDmc/api/file/upload?appId=' + appId + '&sign=' + sign,
+					action: dmc + '/api/file/upload?appId=' + appId + '&sign=' + sign,
 					id: 'myfile',
 					size: {
 						max: 50000, // 5000kb 

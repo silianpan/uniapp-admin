@@ -1,12 +1,22 @@
 <template>
 	<view :class="darkMode?'custom-dark':'custom-light'">
-		<web-view src="/hybrid/html/index.html" @message="handleMessage"></web-view>
+		<web-view :src="'/hybrid/html/index.html?info=' + info" @message="handleMessage"></web-view>
 	</view>
 </template>
 
 <script>
 	import { mapGetters } from 'vuex'
+	import globalConfig from '@/config'
 	export default {
+		data() {
+			return {
+				info: encodeURIComponent(JSON.stringify({
+					appId: globalConfig.yzPreviewAPPID,
+					appKey: globalConfig.yzPreviewAPPKEY,
+					dmc: globalConfig.yzPreviewDmcUrl
+				}))
+			}
+		},
 		computed: {
 			...mapGetters(['themeBgColor', 'darkMode']),
 		},
