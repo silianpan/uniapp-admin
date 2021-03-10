@@ -27,14 +27,14 @@
 					"watermark": ["uniapp-admin"], // 水印内容
 					"isCopy": [1], // 是否防复制，1是0否
 					"viewType": [2], // 预览模式0-标清 1-canvas预览 2-高清
-					"pageStart": [2], // 预览页数起始页
-					"pageEnd": [10], // 预览页数终止页
-					"isShowBar": [1], // 是否显示黑条1是0否
-					"htmlTitle": ['uniapp-admin'], // html标签名字
-					"isDownload": [1], // 是否支持源文件下载1是0否
+					// "pageStart": [2], // 预览页数起始页
+					// "pageEnd": [3], // 预览页数终止页
+					// "isShowBar": [1], // 是否显示黑条1是0否
+					// "htmlTitle": ['uniapp-admin'], // html标签名字
+					// "isDownload": [1], // 是否支持源文件下载1是0否
 				})
 				this.yzPreviewUrl = globalConfig.yzEic + '/api/view/file' + '?fileVersionId=' + d.fileVersionId + '&appId=' +
-					globalConfig.yzPreviewAPPID + '&sign=' + sign + '&watermark=uniapp-admin&isCopy=1&viewType=2&pageStart=2&pageEnd=10&isShowBar=1&htmlTitle=uniapp-admin&isDownload=1'
+					globalConfig.yzPreviewAPPID + '&sign=' + sign + '&watermark=uniapp-admin&isCopy=1&viewType=2'
 			}
 		},
 		onReady() {
