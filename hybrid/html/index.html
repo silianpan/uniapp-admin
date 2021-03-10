@@ -44,7 +44,7 @@
 			var dmc = info.dmc;
 			// 发送文件数据
 			function sendMessage(data) {
-				data.sign = generateSign(appKey, {"appId": [appId], "fileVersionId": [data.fileVersionId]});
+				data.sign = generateSign(appKey, {"appId": [appId], "fileVersionId": [data.fileVersionId], "watermark": ["uniapp-admin"]});
 				uni.postMessage({
 					data: {
 						action: data
