@@ -1,7 +1,8 @@
 <template>
 	<view :class="darkMode?'custom-dark':'custom-light'">
-		<button style="margin:20rpx 60rpx" type="primary" @click="uploadPreviewFile">上传文件，云预览</button>
-		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFile">HTTP上传文件，云编辑</button>
+		<button style="margin:20rpx 60rpx" type="primary" @click="uploadPreviewFile">H5上传文件，云预览</button>
+		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFile">H5上传文件，云编辑</button>
+		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFileHttp">HTTP上传文件，云编辑</button>
 	</view>
 </template>
 
@@ -36,10 +37,15 @@
 			},
 			uploadPreviewFile() {
 				uni.navigateTo({
-					url: '/pages/file/file-upload'
+					url: '/pages/file/file-upload?yzAppType=1'
 				})
 			},
 			uploadEditFile() {
+				uni.navigateTo({
+					url: '/pages/file/file-upload?yzAppType=2'
+				})
+			},
+			uploadEditFileHttp() {
 				const fileUrl = 'http://113.62.127.199:8090/fileUpload/1.docx'
 				uni.showLoading({
 					title: '正在上传',

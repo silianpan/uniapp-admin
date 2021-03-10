@@ -7,6 +7,7 @@ export default {
 	'YzCloud': 'Yozo Cloud',
 	'YzDocPreview': 'Yozo Document Preview',
 	'YzDocEdit': 'Yozo Document Edit',
+	'YzDocPreviewEdit': 'Yozo Document Preview/Edit',
 	'DocUpload': 'Document Upload',
 	'ProjectDetail': 'Project in detail',
 	'Statistics': 'Statistics',

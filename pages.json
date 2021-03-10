@@ -51,7 +51,7 @@
 			"path": "pages/file/file-upload"
 		},
 		{
-			"path": "pages/yzcloud/yz-preview"
+			"path": "pages/yzcloud/yz-preview-callback"
 		},
 		{
 			"path": "pages/yzcloud/yz-edit"

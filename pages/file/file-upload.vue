@@ -10,15 +10,19 @@
 	export default {
 		data() {
 			return {
-				info: encodeURIComponent(JSON.stringify({
-					appId: globalConfig.yzPreviewAPPID,
-					appKey: globalConfig.yzPreviewAPPKEY,
-					dmc: globalConfig.yzDmcUrl
-				}))
+				info: {}
 			}
 		},
 		computed: {
 			...mapGetters(['themeBgColor', 'darkMode']),
+		},
+		onLoad(option) {
+			this.info = encodeURIComponent(JSON.stringify({
+				appId: globalConfig.yzPreviewAPPID,
+				appKey: globalConfig.yzPreviewAPPKEY,
+				dmc: globalConfig.yzDmcUrl,
+				yzAppType: option.yzAppType
+			}))
 		},
 		onReady() {
 			uni.setNavigationBarTitle({

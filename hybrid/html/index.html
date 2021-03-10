@@ -42,8 +42,12 @@
 			var appId = info.appId;
 			var appKey = info.appKey;
 			var dmc = info.dmc;
+			// 永中app类型：云预览、云编辑、格式转换
+			var yzAppType = info.yzAppType
 			// 发送文件数据
 			function sendMessage(data) {
+				// 传递永中app类型
+				data.yzAppType = yzAppType
 				uni.postMessage({
 					data: {
 						action: data
@@ -55,8 +59,9 @@
 				// })
 				// 关闭当前页面，跳转到应用内的某个页面
 				uni.redirectTo({
-					url: '/pages/yzcloud/yz-preview?fileData=' + encodeURIComponent(JSON.stringify(data)),
+					url: '/pages/yzcloud/yz-preview-callback?fileData=' + encodeURIComponent(JSON.stringify(data)),
 				})
+				
 				// 返回上一级页面,通过@message接收数据,并放到store中,以便提交时获取文件数据
 				// uni.navigateBack({
 				//     delta: 1
