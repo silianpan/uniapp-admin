@@ -181,20 +181,20 @@
                         "^/apiUA" : ""
                     }
                 },
-				"/apiYzPreviewDmc" : {
+				"/apiYzDmc" : {
 				    "target" : "http://dmc.yozocloud.cn",
 				    "changeOrigin" : true,
 				    "secure" : false,
 				    "pathRewrite" : {
-				        "^/apiYzPreviewDmc" : ""
+				        "^/apiYzDmc" : ""
 				    }
 				},
-				"/apiYzPreviewEic" : {
+				"/apiYzEic" : {
 				    "target" : "http://eic.yozocloud.cn",
 				    "changeOrigin" : true,
 				    "secure" : false,
 				    "pathRewrite" : {
-				        "^/apiYzPreviewEic" : ""
+				        "^/apiYzEic" : ""
 				    }
 				}
             }

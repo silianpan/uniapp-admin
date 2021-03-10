@@ -44,17 +44,6 @@
 			var dmc = info.dmc;
 			// 发送文件数据
 			function sendMessage(data) {
-				data.sign = generateSign(appKey, {"appId": [appId], 
-					"fileVersionId": [data.fileVersionId], 
-					"watermark": ["uniapp-admin"], // 水印内容
-					"isCopy": [1], // 是否防复制，1是0否
-					"viewType": [2], // 预览模式0-标清 1-canvas预览 2-高清
-					"pageStart": [2], // 预览页数起始页
-					"pageEnd": [10], // 预览页数终止页
-					"isShowBar": [1], // 是否显示黑条1是0否
-					"htmlTitle": ['uniapp-admin'], // html标签名字
-					"isDownload": [1], // 是否支持源文件下载1是0否
-				});
 				uni.postMessage({
 					data: {
 						action: data
@@ -81,7 +70,7 @@
 				// var form = new FormData();
 				// form.append("file", document.getElementById('myfile').files[0]);
 				// var xhrForm = new XMLHttpRequest();
-				// xhrForm.open("POST", '/apiYzPreviewDmc/api/file/upload?appId=' + appId + '&sign=' + sign, true);
+				// xhrForm.open("POST", '/apiYzDmc/api/file/upload?appId=' + appId + '&sign=' + sign, true);
 				// xhrForm.send(form);
 				
 				// 以下是封装XMLHttpRequest，包含成功或失败回调函数

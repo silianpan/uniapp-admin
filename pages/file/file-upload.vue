@@ -13,7 +13,7 @@
 				info: encodeURIComponent(JSON.stringify({
 					appId: globalConfig.yzPreviewAPPID,
 					appKey: globalConfig.yzPreviewAPPKEY,
-					dmc: globalConfig.yzPreviewDmcUrl
+					dmc: globalConfig.yzDmcUrl
 				}))
 			}
 		},

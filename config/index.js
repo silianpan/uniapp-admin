@@ -5,18 +5,22 @@ const ipAddress = 'http://113.62.127.199:38080/app/mock/16'
 // 文件访问地址
 const fileAddr = 'http://localhost:8082/fileUpload/'
 
-// 永中云服务-云预览
+// 永中云服务
 // 文档管理接口url
-const yzPreviewDmc = 'http://dmc.yozocloud.cn'
-const yzPreviewEic = 'http://eic.yozocloud.cn'
+const yzDmc = 'http://dmc.yozocloud.cn'
+const yzEic = 'http://eic.yozocloud.cn'
+// 云预览应用信息
 const yzPreviewAPPID = 'appId'
 const yzPreviewAPPKEY = 'appKey'
+// 云编辑应用信息
+const yzEditAPPID = 'appId'
+const yzEditAPPKEY = 'appKey'
 /**
  * api前缀
  */
 const apiPrefix = '/apiUA'
-const apiYzPreviewDmc = '/apiYzPreviewDmc'
-const apiYzPreviewEic = '/apiYzPreviewEic'
+const apiYzDmc = '/apiYzDmc'
+const apiYzEic = '/apiYzEic'
 /**
  * 针对不同平台的baseUrl
  */
@@ -28,20 +32,20 @@ const getBaseUrl = () => {
 	return ipAddress
 	// #endif
 }
-const getYzPreviewDmc = () => {
+const getYzDmc = () => {
 	// #ifdef H5
-	return apiYzPreviewDmc
+	return apiYzDmc
 	// #endif
 	// #ifndef H5
-	return yzPreviewDmc
+	return yzDmc
 	// #endif
 }
-const getYzPreviewEic = () => {
+const getYzEic = () => {
 	// #ifdef H5
-	return apiYzPreviewEic
+	return apiYzEic
 	// #endif
 	// #ifndef H5
-	return yzPreviewEic
+	return yzEic
 	// #endif
 }
 export default {
@@ -50,9 +54,11 @@ export default {
 	 */
 	baseUrl: getBaseUrl(),
 	fileAddr,
-	yzPreviewDmcUrl: getYzPreviewDmc(),
-	yzPreviewEic,
-	yzPreviewEicUrl: getYzPreviewEic(),
+	yzDmcUrl: getYzDmc(),
+	yzEic,
+	yzEicUrl: getYzEic(),
 	yzPreviewAPPID,
-	yzPreviewAPPKEY
+	yzPreviewAPPKEY,
+	yzEditAPPID,
+	yzEditAPPKEY
 }

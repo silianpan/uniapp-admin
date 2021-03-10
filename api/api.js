@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import MinRequest from '@/utils/MinRequest'
 import globalConfig from '@/config'
+import { generateSign } from '@/pages/yzcloud/signclient.js'
 
 const minRequest = new MinRequest()
 
@@ -37,29 +38,40 @@ export default {
 		listAuditUser() {
 			return minRequest.get('/get/audit/user/list')
 		},
-		// 永中云预览-上传文件
-		yzPreviewUploadFile({
-			file
-		}) {
-			return minRequest.post('/apiYzPreviewDmc/api/file/upload', {
-				file,
-				appId: globalConfig.yzPreviewAPPID,
-				sign: globalConfig.yzPreviewAPPKEY
+		// 文档管理接口：HTTP上传文件
+		yzEditHttpUploadFile({ fileUrl }) {
+			const sign = generateSign(globalConfig.yzEditAPPKEY, {"appId": [globalConfig.yzEditAPPID],
+				"fileUrl": [fileUrl]
+			})
+			return minRequest.post('/api/file/http', {
+				fileUrl,
+				appId: globalConfig.yzEditAPPID,
+				sign
 			}, {
-				baseURL: globalConfig.yzPreviewDmcUrl
+				baseURL: globalConfig.yzDmcUrl
 			})
 		},
+		// 文档管理接口：上传文件
+		// yzPreviewUploadFile({ file }) {
+		// 	const sign = ''
+		// 	return minRequest.post('/api/file/upload', {
+		// 		file,
+		// 		appId: globalConfig.yzPreviewAPPID,
+		// 		sign
+		// 	}, {
+		// 		baseURL: globalConfig.yzDmcUrl
+		// 	})
+		// },
 		// 永中云预览-在线预览
-		yzPreviewFile({
-			fileVersionId
-		}) {
-			return minRequest.post('/apiYzPreviewEic/api/view/file', {
-				fileVersionId,
-				appId: globalConfig.yzPreviewAPPID,
-				sign: globalConfig.yzPreviewAPPKEY
-			}, {
-				baseURL: globalConfig.yzPreviewEicUrl
-			})
-		}
+		// yzPreviewFile({ fileVersionId }) {
+		// 	const sign = ''
+		// 	return minRequest.get('/api/view/file', {
+		// 		fileVersionId,
+		// 		appId: globalConfig.yzPreviewAPPID,
+		// 		sign
+		// 	}, {
+		// 		baseURL: globalConfig.yzEicUrl
+		// 	})
+		// }
 	}
 }

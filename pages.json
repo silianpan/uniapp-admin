@@ -52,6 +52,9 @@
 		},
 		{
 			"path": "pages/yzcloud/yz-preview"
+		},
+		{
+			"path": "pages/yzcloud/yz-edit"
 		}
 	],
 	"tabBar": {
