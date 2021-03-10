@@ -43,7 +43,7 @@
 						"userRight": ["0"], // 模式：0:编辑（默认）1:只读
 						"userName": ['silianpan'], // 用户名称
 					})
-					this.yzPreviewUrl = `${globalConfig.yzEic}/api/edit/file?fileVersionId=${d.fileVersionId}&appId=${globalConfig.yzEditAPPID}&sign=${sign}&userRight=1&userName=silianpan`
+					this.yzPreviewUrl = `${globalConfig.yzEic}/api/edit/file?fileVersionId=${d.fileVersionId}&appId=${globalConfig.yzEditAPPID}&sign=${sign}&userRight=0&userName=silianpan`
 				}
 			}
 		},
