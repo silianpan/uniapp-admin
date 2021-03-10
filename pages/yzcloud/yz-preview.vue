@@ -22,7 +22,7 @@
 			if (option.fileData) {
 				const d = JSON.parse(decodeURIComponent(option.fileData))
 				this.yzPreviewUrl = globalConfig.yzPreviewEic + '/api/view/file' + '?fileVersionId=' + d.fileVersionId + '&appId=' +
-					globalConfig.yzPreviewAPPID + '&sign=' + d.sign + '&watermark=uniapp-admin&isCopy=1&viewType=2&pageStart=2&pageEnd=3&isShowBar=1&htmlTitle=uniapp-admin&isDownload=1'
+					globalConfig.yzPreviewAPPID + '&sign=' + d.sign + '&watermark=uniapp-admin&isCopy=1&viewType=2&pageStart=2&pageEnd=10&isShowBar=1&htmlTitle=uniapp-admin&isDownload=1'
 			}
 		},
 		onReady() {
