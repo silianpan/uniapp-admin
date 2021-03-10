@@ -37,7 +37,6 @@
 					this.yzPreviewUrl = globalConfig.yzEic + '/api/view/file' + '?fileVersionId=' + d.fileVersionId + '&appId=' +
 						globalConfig.yzPreviewAPPID + '&sign=' + sign + '&watermark=uniapp-admin&isCopy=1&viewType=2'
 				} else if (d.yzAppType == 2) {
-					const d = JSON.parse(decodeURIComponent(option.fileData))
 					const sign = generateSign(globalConfig.yzEditAPPKEY, {"appId": [globalConfig.yzEditAPPID],
 						"fileVersionId": [d.fileVersionId], 
 						"userRight": ["0"], // 模式：0:编辑（默认）1:只读
