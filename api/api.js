@@ -62,7 +62,10 @@ export default {
 				appId: globalConfig.yzFormatConvertAPPID,
 				sign
 			}, {
-				baseURL: globalConfig.yzEicUrl
+				baseURL: globalConfig.yzEicUrl,
+				header: {
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+				}
 			})
 		}
 		// 文档管理接口：上传文件
