@@ -18,8 +18,10 @@
 		},
 		onLoad(option) {
 			this.info = encodeURIComponent(JSON.stringify({
-				appId: option.yzAppType == 1 ? globalConfig.yzPreviewAPPID : globalConfig.yzEditAPPID,
-				appKey: option.yzAppType == 1 ? globalConfig.yzPreviewAPPKEY : globalConfig.yzEditAPPKEY,
+				appId: option.yzAppType == 1 ? globalConfig.yzPreviewAPPID : 
+					(option.yzAppType == 2 ? globalConfig.yzEditAPPID : globalConfig.yzFormatConvertAPPID),
+				appKey: option.yzAppType == 1 ? globalConfig.yzPreviewAPPKEY : 
+					(option.yzAppType == 2 ? globalConfig.yzEditAPPKEY : globalConfig.yzFormatConvertAPPKEY),
 				dmc: globalConfig.yzDmcUrl,
 				yzAppType: option.yzAppType
 			}))

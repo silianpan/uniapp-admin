@@ -1,6 +1,7 @@
 <template>
 	<view :class="darkMode?'custom-dark':'custom-light'">
 		<web-view v-if="yzPreviewUrl" :src="yzPreviewUrl"></web-view>
+		<view v-else-if="convertMsg">{{ convertMsg }}</view>
 		<view v-else>文档地址无效，无法加载该文档</view>
 	</view>
 </template>
@@ -15,7 +16,8 @@
 		},
 		data() {
 			return {
-				yzPreviewUrl: ''
+				yzPreviewUrl: '',
+				convertMsg: ''
 			}
 		},
 		onLoad(option) {
@@ -43,6 +45,19 @@
 						"userName": ['silianpan'], // 用户名称
 					})
 					this.yzPreviewUrl = `${globalConfig.yzEic}/api/edit/file?fileVersionId=${d.fileVersionId}&appId=${globalConfig.yzEditAPPID}&sign=${sign}&userRight=0&userName=silianpan`
+				} else if (d.yzAppType == 3) {
+					this.convertMsg = '正在转换文档...'
+					this.$minApi.yzConvertFile({
+						fileVersionId: d.fileVersionId,
+						convertType: 1,
+						destinationName: 'ua'
+					}).then(res => {
+						this.convertMsg = '转换完成\n\n' + JSON.stringify(res) 
+						uni.showModal({
+							content: JSON.stringify(res),
+							showCancel: false
+						})
+					})
 				}
 			}
 		},

@@ -15,6 +15,9 @@ const yzPreviewAPPKEY = 'appKey'
 // 云编辑应用信息
 const yzEditAPPID = 'appId'
 const yzEditAPPKEY = 'appKey'
+// 格式转换应用信息
+const yzFormatConvertAPPID = 'appId'
+const yzFormatConvertAPPKEY = 'appKey'
 /**
  * api前缀
  */
@@ -60,5 +63,7 @@ export default {
 	yzPreviewAPPID,
 	yzPreviewAPPKEY,
 	yzEditAPPID,
-	yzEditAPPKEY
+	yzEditAPPKEY,
+	yzFormatConvertAPPID,
+	yzFormatConvertAPPKEY
 }

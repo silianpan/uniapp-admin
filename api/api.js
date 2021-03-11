@@ -51,6 +51,20 @@ export default {
 				baseURL: globalConfig.yzDmcUrl
 			})
 		},
+		// 格式转换接口
+		yzConvertFile(params) {
+			const sign = generateSign(globalConfig.yzFormatConvertAPPKEY, {"appId": [globalConfig.yzFormatConvertAPPID],
+				"fileVersionId": [params.fileVersionId],
+				"convertType": [params.convertType],
+				"destinationName": [params.destinationName]
+			})
+			return minRequest.post('/api/convert/file', { ...params,
+				appId: globalConfig.yzFormatConvertAPPID,
+				sign
+			}, {
+				baseURL: globalConfig.yzEicUrl
+			})
+		}
 		// 文档管理接口：上传文件
 		// yzPreviewUploadFile({ file }) {
 		// 	const sign = ''

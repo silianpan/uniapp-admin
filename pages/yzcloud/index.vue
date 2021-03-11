@@ -3,6 +3,7 @@
 		<button style="margin:20rpx 60rpx" type="primary" @click="uploadPreviewFile">H5上传文件，云预览</button>
 		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFile">H5上传文件，云编辑</button>
 		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFileHttp">HTTP上传文件，云编辑</button>
+		<button style="margin:20rpx 60rpx" type="primary" @click="uploadFormatConvertFile">H5上传文件，格式转换</button>
 	</view>
 </template>
 
@@ -43,6 +44,11 @@
 			uploadEditFile() {
 				uni.navigateTo({
 					url: '/pages/file/file-upload?yzAppType=2'
+				})
+			},
+			uploadFormatConvertFile() {
+				uni.navigateTo({
+					url: '/pages/file/file-upload?yzAppType=3'
 				})
 			},
 			uploadEditFileHttp() {
