@@ -2,8 +2,8 @@
     "name" : "uniapp-admin",
     "appid" : "",
     "description" : "",
-    "versionName" : "2.0.4",
-    "versionCode" : 204,
+    "versionName" : "2.1.0",
+    "versionCode" : 210,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
@@ -181,22 +181,22 @@
                         "^/apiUA" : ""
                     }
                 },
-				"/apiYzDmc" : {
-				    "target" : "http://dmc.yozocloud.cn",
-				    "changeOrigin" : true,
-				    "secure" : false,
-				    "pathRewrite" : {
-				        "^/apiYzDmc" : ""
-				    }
-				},
-				"/apiYzEic" : {
-				    "target" : "http://eic.yozocloud.cn",
-				    "changeOrigin" : true,
-				    "secure" : false,
-				    "pathRewrite" : {
-				        "^/apiYzEic" : ""
-				    }
-				}
+                "/apiYzDmc" : {
+                    "target" : "http://dmc.yozocloud.cn",
+                    "changeOrigin" : true,
+                    "secure" : false,
+                    "pathRewrite" : {
+                        "^/apiYzDmc" : ""
+                    }
+                },
+                "/apiYzEic" : {
+                    "target" : "http://eic.yozocloud.cn",
+                    "changeOrigin" : true,
+                    "secure" : false,
+                    "pathRewrite" : {
+                        "^/apiYzEic" : ""
+                    }
+                }
             }
         },
         "title" : "uniapp-admin",
