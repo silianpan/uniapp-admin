@@ -1,5 +1,5 @@
 <template>
-	<view :class="darkMode?'custom-dark':'custom-light'">
+	<view :class="darkMode?'custom-dark':'custom-light'" class="w-h-100">
 		<button style="margin:20rpx 60rpx" type="primary" @click="uploadPreviewFile">H5上传文件，云预览</button>
 		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFile">H5上传文件，云编辑</button>
 		<button style="margin:20rpx 60rpx" type="primary" @click="uploadEditFileHttp">HTTP上传文件，云编辑</button>
