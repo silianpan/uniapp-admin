@@ -174,7 +174,7 @@
             "disableHostCheck" : true,
             "proxy" : {
                 "/apiUA" : {
-                    "target" : "http://113.62.127.199:38080/app/mock/16",
+                    "target" : "http://rap2api.taobao.org/app/mock/263960",
                     "changeOrigin" : true,
                     "secure" : false,
                     "pathRewrite" : {
